@@ -120,13 +120,3 @@ img {
 .InputId:focus, .InputPassword:focus {
     outline: none;
 }
-
-.SignUp {
-    font-family: 'Pretendard';
-    color: #ACACAC;
-    font-size: 9px;
-    font-weight: 500;
-    border-bottom: #ACACAC solid 1px;
-    cursor: pointer;
-}
-
