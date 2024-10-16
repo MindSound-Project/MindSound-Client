@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'HakgyoansimChilpanjijgae';
+    src: url('/font/Hakgyoansim Chilpanjiugae TTF L.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/font/PretendardVariable.ttf') format('truetype');
+}
+
+html {
+    font-family: 'HakgyoansimChilpanjijgae';
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
