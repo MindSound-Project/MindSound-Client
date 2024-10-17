@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="letterTest.css">
+</head>
+
+<body>
+
+    <div class="letter-container">
+        <canvas id="letterCanvas"></canvas>
+        <textarea id="textArea" placeholder="여기에 편지를 작성하세요..." oninput="updateCanvas()"></textarea>
+    </div>
+    <button onclick="downloadImage()">이미지 저장</button>
+
+    <script src="letterTest.js"></script>
+</body>
+
+</html>
