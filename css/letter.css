@@ -24,6 +24,7 @@ body{
 .write>span{
     font-family: 'HakgyoansimChilpanjijgae';
     font-size: 25px;
+    margin-bottom: 10px;
 }
 .write{
     display: flex;
@@ -93,13 +94,16 @@ body{
 }
 .letter{
     flex-shrink: 0;
-    width: 80%;
+    width: 90%;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-@media screen and (max-Width:1400px){
+.letter>span{
+    font-size: 13px;
+}
+@media screen and (max-Width:1160px){
     #main{
         flex-direction: column;
     }
@@ -110,9 +114,6 @@ body{
         height: 30%;
         flex-direction: column;
         padding: 0;
-    }
-    .write{
-        height: calc(100% - 230px);
     }
     .versionContainer{
         flex-direction: row;
@@ -125,6 +126,7 @@ body{
     .version{
         writing-mode: horizontal-tb; 
         text-orientation: mixed;
+        font-size: 13px;
     }
     .letterContainer{
         display: flex;
@@ -132,7 +134,7 @@ body{
         gap: 30px;
         align-items: center;
         overflow: auto;
-        height: 230px;
+        height: 100%;
         width: 95% !important;
         margin-left: 2.5%;
         border-radius: 30px 30px 0 0;
@@ -145,15 +147,22 @@ body{
         height: 88%;
     }
 }
-@media screen and (max-Width:805px){
+@media screen and (max-Width:605px){
     #main{
         justify-content: space-between;
     }
-    .container, .write{
-        height: 50%;
+    .write{
+        height: 60%;
+    }
+    .container{
+        height: 40%;
     }
     .versionContainer{
         width: 180px;
+        height: 90px;
+    }
+    .version{
+        font-size: 12px;
     }
     .letterContainer{
         display: grid;
