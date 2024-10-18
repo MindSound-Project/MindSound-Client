@@ -42,7 +42,7 @@ colButton.onclick = () => {
             img.src = '/image/울적한날의개굴편지지(세로).png';
         });
 
-        letterContainerSection.style = 'grid-template-columns: 1fr 1fr; width: 450px;'
+        letterContainerSection.style = 'grid-template-columns: 1fr 1fr; width: 400px;'
 
     }
 };

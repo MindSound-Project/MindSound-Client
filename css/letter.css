@@ -103,7 +103,11 @@ body{
     #main{
         flex-direction: column;
     }
+    .write{
+        height: 70%;
+    }
     .container{
+        height: 30%;
         flex-direction: column;
         padding: 0;
     }
