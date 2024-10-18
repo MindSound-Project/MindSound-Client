@@ -29,13 +29,22 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 30px 0;
     width: 100%;
     height: 100%;
 }
+.col{
+    color: #ACACAC;
+}
+.versionColor1{
+    color: black;
+}
+.versionColor2{
+    color: #ACACAC;
+}
 .letterImg{
-    height: 100%;
+    height: calc(100% - 28px);
+    object-fit: contain;
 }
 .version , .letter>span{
     font-family: 'Pretendard';
@@ -71,35 +80,26 @@ body{
 .letterContainer{
     display: grid;
     overflow: auto; 
-    /* 스크롤바를 숨기기 위한 설정 */
     scrollbar-width: none;
     grid-template-columns: 1fr; 
     background-color: white;
     border-radius: 30px 0 0 30px;
-    border-top: 60px solid white;
-    border-bottom: 60px solid white;
-    width: 400px;
-    gap: 30px;
+    border-top: 40px solid white;
+    border-bottom: 40px solid white;
+    width: 300px;
+    row-gap: 30px;
     justify-items: center;
+    padding: 10px;
 }
 .letter{
     flex-shrink: 0;
-    width: 300px;
+    width: 80%;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.letter > img{
-    width: 300px;
-}
-@media screen and (max-Width:2015px){
-    .letterImg{
-        width: 100%;
-        height: auto;
-    }
-}
-@media screen and (max-Width:1700px){
+@media screen and (max-Width:1400px){
     #main{
         flex-direction: column;
     }
@@ -107,9 +107,8 @@ body{
         flex-direction: column;
         padding: 0;
     }
-    .letterImg{
-        height: 100%;
-        width: auto;
+    .write{
+        height: calc(100% - 230px);
     }
     .versionContainer{
         flex-direction: row;
@@ -126,40 +125,43 @@ body{
     .letterContainer{
         display: flex;
         flex-direction: row;
+        gap: 30px;
         align-items: center;
         overflow: auto;
-        height: 300px;
-        width: 95%;
+        height: 230px;
+        width: 95% !important;
         margin-left: 2.5%;
         border-radius: 30px 30px 0 0;
         border: none;
-        border-left: 60px solid white;
-        border-right: 60px solid white;
+        border-left: 40px solid white;
+        border-right: 40px solid white;
     }
-    .write{
-        height: calc(100% - 200px);
-    }
-}
-@media screen and (max-Width:1050px){
-    .letterImg{
-        width: 100%;
-        height: auto;
+    .letter , .letter>img{
+        width: auto;
+        height: 88%;
     }
 }
 @media screen and (max-Width:805px){
     #main{
         justify-content: space-between;
     }
+    .container, .write{
+        height: 50%;
+    }
+    .versionContainer{
+        width: 180px;
+    }
     .letterContainer{
         display: grid;
-        grid-template-columns: 1fr 1fr; 
+        grid-template-columns: 1fr 1fr !important; 
         column-gap: 0;
         border: none;
         border-top: 20px solid white;
         border-bottom: 20px solid white;
         height: 500px;
     }
-    .letter{
+    .letter , .letter>img{
         width: 90%;
+        height: auto;
     }
 }
