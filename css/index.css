@@ -31,6 +31,12 @@ body {
     margin-bottom: 15px;
 }
 
+.TwoTitles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .Accent {
     color: #FC4D4D;
 }
@@ -44,4 +50,26 @@ img {
     height: 300px;
 }
 
+img:hover {
+    content: url(/image/마음소리함열린문.png);
+}
 
+
+@media screen and (max-Width:605px){
+    img {
+        width: 230px;
+        height: 230px;
+    }
+
+    .Title {
+        font-size: 25px;
+    }
+
+    .SubTitle {
+        font-size: 20px;
+    }
+
+    .AllContainer {
+        flex-direction: column-reverse;
+    }
+}

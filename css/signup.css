@@ -46,6 +46,12 @@ body {
     margin-bottom: 15px;
 }
 
+.TwoTitles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .Accent {
     color: #FC4D4D;
 }
@@ -98,7 +104,25 @@ img {
 }
 
 .InputId::placeholder, .InputPassword::placeholder {
+    color: rgba(0, 0, 0, 0.50);
     font-size: 12px;
+}
+
+.InputWithIcon1,
+.InputWithIcon2 {
+    display: flex;
+    align-items: center;
+    width: 280px;
+    background: #F3F3F3;
+    padding-left: 8px;
+}
+
+.InputWithIcon1 {
+    margin-bottom: 15px;
+}
+
+.InputWithIcon2 {
+    margin-bottom: 30px;
 }
 
 .ButtonLogin {
@@ -109,14 +133,67 @@ img {
     margin-bottom: 8px;
 }
 
-.InputId {
+.InputWithIcon1 {
     margin-bottom: 15px;
 }
 
-.InputPassword {
+.InputWithIcon2 {
     margin-bottom: 30px;
 }
 
 .InputId:focus, .InputPassword:focus {
     outline: none;
+}
+
+@media screen and (max-width: 1160px) {
+    .AllLoginContainer {
+        width: 90%;
+        max-width: 410px;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    .AllContainer {
+        flex-direction: column-reverse;
+    }
+
+    .Title {
+        font-size: 25px;
+    }
+
+    .SubTitle {
+        font-size: 20px;
+    }
+
+    .AllContainer {
+        flex-direction: column-reverse;
+    }
+    
+    .AllLoginContainer {
+        width: 100%;
+        max-width: 316px;
+        padding: 20px;
+    }
+
+    .InputId, .InputPassword, .ButtonLogin {
+        width: 100%;
+        height: 48px;
+    }
+
+    .ButtonLogin {
+        height: 40px;
+    }
+
+    .InputId, .InputPassword {
+        font-size: 14px;
+    }
+
+    .ButtonLogin {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+
+    svg {
+        font-size: 22px;
+    }
 }
