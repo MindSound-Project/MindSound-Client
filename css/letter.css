@@ -20,11 +20,34 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow: hidden;
+}
+.go{
+    position: absolute;
+    top: calc(46px + 13px);
+    right: 20px;
+    color: #ACACAC;
+    text-decoration: none;
+    font-family: 'HakgyoansimChilpanjijgae';
+    font-size: 25px;
+
 }
 .write>span{
     font-family: 'HakgyoansimChilpanjijgae';
     font-size: 25px;
     margin-bottom: 10px;
+}
+.left{
+    display: none;
+}
+.right{
+    display: none;
+}
+.left:hover{
+    cursor: pointer;
+}
+.right:hover{
+    cursor: pointer;
 }
 .write{
     display: flex;
@@ -51,9 +74,13 @@ body{
     font-family: 'Pretendard';
 }
 .container{
+    position: relative;
     display: flex;
     flex-direction: row;
     padding: 30px 0;
+    transition: transform 0.5s ease; /* 부드러운 이동 효과 */
+    /* margin-right: -280px; */
+    /* bottom: -170px; */
 }
 .versionContainer{
     display: flex;
@@ -66,7 +93,7 @@ body{
     height: 230px;
     border-radius: 30px 0 0 30px;
     padding-left: 8px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 .version{
     writing-mode: vertical-rl;
@@ -85,11 +112,12 @@ body{
     grid-template-columns: 1fr; 
     background-color: white;
     border-radius: 30px 0 0 30px;
-    border-top: 40px solid white;
-    border-bottom: 40px solid white;
+    border-top: 20px solid white;
+    border-bottom: 20px solid white;
     width: 300px;
     row-gap: 30px;
     justify-items: center;
+    margin-top: 25px;
     padding: 10px;
 }
 .letter{
@@ -106,6 +134,22 @@ body{
 @media screen and (max-Width:1160px){
     #main{
         flex-direction: column;
+    }
+    .left{
+        display: inline;
+        width: 14px;
+        padding: 3px;
+        position: absolute;
+        left: 42px;
+        bottom: 35%;
+    }
+    .right{
+        display: inline;
+        width: 14px;
+        padding: 3px;
+        position: absolute;
+        right: 42px;
+        bottom: 35%;
     }
     .write{
         height: 70%;
@@ -136,11 +180,13 @@ body{
         overflow: auto;
         height: 100%;
         width: 95% !important;
+        margin-top: 0;
         margin-left: 2.5%;
         border-radius: 30px 30px 0 0;
         border: none;
-        border-left: 40px solid white;
-        border-right: 40px solid white;
+        border-left: 50px solid white;
+        border-right: 50px solid white;
+        padding: 10px 0;
     }
     .letter , .letter>img{
         width: auto;
@@ -150,6 +196,17 @@ body{
 @media screen and (max-Width:605px){
     #main{
         justify-content: space-between;
+    }
+    .go{
+        font-size: 23px;
+        top: calc(50% + 13%);
+        right: 50px;
+    }
+    .left{
+        display: none;
+    }
+    .right{
+        display: none;
     }
     .write{
         height: 60%;
@@ -172,6 +229,7 @@ body{
         border-top: 20px solid white;
         border-bottom: 20px solid white;
         height: 500px;
+        padding: 10px;
     }
     .letter , .letter>img{
         width: 90%;
