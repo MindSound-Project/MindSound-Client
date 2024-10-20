@@ -7,13 +7,14 @@ const letterContainerSection = document.getElementsByClassName("letterContainer"
 
 const versionContainerSection = document.getElementsByClassName("versionContainer")[0];
 
-
 var isVerticalActive = true; // 가로 버전이 활성화된 상태
-
 
 const leftButton = document.querySelector('.left');
 const rightButton = document.querySelector('.right');
 const letterContainer = document.querySelector('.letterContainer');
+
+const writeDiv = document.getElementsByClassName('write')[0];
+const containerDiv = document.getElementsByClassName('container')[0];
 
 // 한 번에 움직일 픽셀 값 (조절 가능)
 let scrollAmount = 228; 
@@ -58,8 +59,6 @@ colButton.onclick = () => {
     }
 };
 
-
-
 // 오른쪽 버튼 클릭 시, 오른쪽으로 스크롤
 rightButton.addEventListener('click', () => {
     letterContainer.scrollLeft += scrollAmount;
@@ -68,4 +67,40 @@ rightButton.addEventListener('click', () => {
 // 왼쪽 버튼 클릭 시, 왼쪽으로 스크롤
 leftButton.addEventListener('click', () => {
     letterContainer.scrollLeft -= scrollAmount;
+});
+
+// 이벤트 리스너 수정: 함수 이름만 전달
+writeDiv.addEventListener('click', () => {
+    if (isVerticalActive) {
+        containerDiv.classList.remove('colhidden');
+        containerDiv.classList.add('rowhidden');
+    }
+    else{
+        containerDiv.classList.remove('rowhidden');
+        containerDiv.classList.add('colhidden');
+    }
+    // writeDiv.style.height = '100%';
+});
+containerDiv.addEventListener('click', (e) => {
+    if(e.target === containerDiv){
+        if (isVerticalActive) {
+            containerDiv.classList.remove('colhidden');
+            containerDiv.classList.add('rowhidden');
+        }
+        else{
+            containerDiv.classList.remove('rowhidden');
+            containerDiv.classList.add('colhidden');
+        }
+    }
+});
+
+versionContainerSection.addEventListener('click', () => {
+    containerDiv.classList.remove('colhidden');
+    containerDiv.classList.remove('rowhidden');
+
+});
+letterContainer.addEventListener('click', () => {
+    containerDiv.classList.remove('colhidden');
+    containerDiv.classList.remove('rowhidden');
+
 });
