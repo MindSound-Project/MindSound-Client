@@ -34,7 +34,7 @@ rowButton.onclick = () => {
             img.src = '/image/울적한날의개굴편지지.png';
         });
 
-        letterContainerSection.style = 'grid-template-columns: 1fr; width: 300px;'
+        letterContainerSection.style = 'grid-template-columns: 1fr; width: 100%;'
         scrollAmount = 228; 
     }
 };
@@ -54,7 +54,7 @@ colButton.onclick = () => {
             img.src = '/image/울적한날의개굴편지지(세로).png';
         });
 
-        letterContainerSection.style = 'grid-template-columns: 1fr 1fr; width: 400px;'
+        letterContainerSection.style = 'grid-template-columns: 1fr 1fr; width: 100%;'
         scrollAmount = 125; 
     }
 };
@@ -79,28 +79,18 @@ writeDiv.addEventListener('click', () => {
         containerDiv.classList.remove('rowhidden');
         containerDiv.classList.add('colhidden');
     }
-    // writeDiv.style.height = '100%';
-});
-containerDiv.addEventListener('click', (e) => {
-    if(e.target === containerDiv){
-        if (isVerticalActive) {
-            containerDiv.classList.remove('colhidden');
-            containerDiv.classList.add('rowhidden');
-        }
-        else{
-            containerDiv.classList.remove('rowhidden');
-            containerDiv.classList.add('colhidden');
-        }
-    }
+    writeDiv.classList.add('down');
+    // writeDiv.style.height = 'calc(100vh - 100px)';
 });
 
 versionContainerSection.addEventListener('click', () => {
     containerDiv.classList.remove('colhidden');
     containerDiv.classList.remove('rowhidden');
+    writeDiv.classList.remove('down');
 
 });
 letterContainer.addEventListener('click', () => {
     containerDiv.classList.remove('colhidden');
     containerDiv.classList.remove('rowhidden');
-
+    writeDiv.classList.remove('down');
 });
