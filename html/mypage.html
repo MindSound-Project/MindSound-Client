@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Document</title>
+    <title>마이페이지</title>
     <link rel="stylesheet" href="/reset.css">
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/mypage.css">
 </head>
-<body>
-    <header class="navHeader">
-        <nav class="nav">
-            <div class="logo">
-                <a href="/index.html">
-                    <img src="/image/마음소리함.png" alt="">
-                </a>
-            </div>
-            <div class="navDiv">
-                <img src="/image/pen1.png" alt="" class="pen">
-                <a href="/html/letter.html" class="navItem here">편지 쓰기</a>
-                <a href="" class="navItem">기록 보기</a>
-                <a href="/html/mypage.html" class="navItem mypage">마이페이지</a>
-            </div>
-        </nav>
-    </header>
-    <main id="main">
-        
-    </main>
+<header class="navHeader">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/index.html">
+                <img src="/image/마음소리함.png" alt="">
+            </a>
+        </div>
+        <div class="navDiv">
+            <img src="/image/pen1.png" alt="" class="pen" style="margin-left: 250px;">
+            <a href="/html/letter.html" class="navItem">편지 쓰기</a>
+            <a href="" class="navItem">기록 보기</a>
+            <a href="/html/mypage.html" class="navItem here">마이페이지</a>
+        </div>
+    </nav>
+</header>
 
-    <!-- <script src="/js/letter.js"></script> -->
+
+<main id="main">
+    <div class="image-button">
+        <input type="file" id="fileInput" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+            <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/>
+          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+        </svg>
+    </div>
+    <div class="image-preview"></div>
+    
+</main>
+
+<script src="js/mypage.js"></script>
 </body>
+
 </html>
