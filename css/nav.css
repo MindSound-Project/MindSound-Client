@@ -1,10 +1,15 @@
+@font-face {
+    font-family: 'HakgyoansimChilpanjijgae';
+    src: url('/font/Hakgyoansim Chilpanjiugae TTF L.ttf') format('truetype');
+}
+
 .nav{
     position: fixed;
     z-index: 100;
     top: 0;
     width: 100%;
     height: 46px;
-    background-color: #B8CCFF;
+    background-color: #FFC5BA;
     display: flex;
     justify-content: space-between;
     padding: 0 27px;

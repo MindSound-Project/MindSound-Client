@@ -29,7 +29,7 @@ body{
     color: #ACACAC;
     text-decoration: none;
     font-family: 'HakgyoansimChilpanjijgae';
-    font-size: 20px;
+    font-size: 25px;
 
 }
 .write>span{
@@ -98,7 +98,7 @@ body{
 .version{
     writing-mode: vertical-rl;
     text-orientation: upright;
-    font-size: 14px;
+    font-size: 15px;
     background-color: white;
     border: none;
 }
@@ -141,27 +141,6 @@ body{
     transform: translateX(380px); 
     transition: transform 0.5s ease; 
     margin-left: -380px;
-}
-.here {
-    display: inline-block;
-    position: relative;
-}
-.here::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -2px; /* 글자와 밑줄 사이 간격 조정 */
-    border-bottom: 0.1px solid black; /* 첫 번째 밑줄 */
-    box-shadow: 0 2px 0 0 black; /* 두 번째 밑줄 */
-    opacity: 0.5;
-}
-.pen{
-    width: 10px;
-    position: absolute;
-    z-index: 101;
-    bottom: 10px;
-    margin-left: 61px;
 }
 @media screen and (max-Width:1160px){
     #main{
@@ -228,9 +207,9 @@ body{
     .colhidden{
         transform: translateX(0); 
         margin-left: 0;
-        transform: translateY(35px); 
+        transform: translateY(100px); 
         transition: transform 0.5s ease; 
-        margin-bottom: -80px;
+        margin-bottom: -100px;
     }
 }
 @media screen and (max-Width:605px){
@@ -238,7 +217,7 @@ body{
         justify-content: space-between;
     }
     .go{
-        font-size: 20px;
+        font-size: 23px;
         top: calc(50% + 13%);
         right: 50px;
     }
