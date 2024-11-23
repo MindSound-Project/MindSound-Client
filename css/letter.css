@@ -12,12 +12,11 @@ body{
     width: 100%;
     height: 100vh;
     background-color: #EAEBFF;
-    overflow: hidden;
 }
 #main{
     padding-top: 46px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -56,7 +55,7 @@ body{
     align-items: center;
     padding: 30px 0;
     width: 100%;
-    height: calc(100vh - 50px);
+    height: 100%;
 }
 .col{
     color: #ACACAC;
@@ -76,11 +75,12 @@ body{
 }
 .container{
     position: relative;
-    bottom: 0;
     display: flex;
     flex-direction: row;
     padding: 30px 0;
     transition: transform 0.5s ease; /* 부드러운 이동 효과 */
+    /* margin-right: -280px; */
+    /* bottom: -170px; */
 }
 .versionContainer{
     display: flex;
@@ -151,7 +151,7 @@ body{
         width: 14px;
         padding: 3px;
         position: absolute;
-        left: 12px;
+        left: 42px;
         bottom: 35%;
     }
     .right{
@@ -159,25 +159,21 @@ body{
         width: 14px;
         padding: 3px;
         position: absolute;
-        right: 12px;
+        right: 42px;
         bottom: 35%;
     }
     .write{
-        height: calc(100vh - 300px);
+        height: 100%;
     }
     .container{
-        width: calc(100% - 60px);
-        position: absolute;
         height: 270px;
         flex-direction: column;
-        margin: 0 30px;
         padding: 0;
-        bottom: 0;
     }
     .versionContainer{
         flex-direction: row;
         margin-top: 0;
-        margin-left: 40px;
+        margin-left: calc(5% + 40px);
         border-radius: 30px 30px 0 0;
         width: 230px;
         height: 50px;
@@ -194,9 +190,9 @@ body{
         align-items: center;
         overflow: auto;
         height: 100%;
-        width: 100%;
+        width: 95% !important;
         margin-top: 0;
-        /* margin-left: 2.5%; */
+        margin-left: 2.5%;
         border-radius: 30px 30px 0 0;
         border: none;
         border-left: 50px solid white;
@@ -211,12 +207,9 @@ body{
     .colhidden{
         transform: translateX(0); 
         margin-left: 0;
+        transform: translateY(100px); 
         transition: transform 0.5s ease; 
-        margin-bottom: -200px;
-        transform: translateY(-200);
-    }
-    .down{
-        height: calc(100vh - 100px);
+        margin-bottom: -100px;
     }
 }
 @media screen and (max-Width:605px){
@@ -224,13 +217,9 @@ body{
         justify-content: space-between;
     }
     .go{
-        top: auto;
-        height: 25px;
-        position: fixed;
-        bottom: 310px;
         font-size: 23px;
+        top: calc(50% + 13%);
         right: 50px;
-        z-index: 1000;
     }
     .left{
         display: none;
@@ -239,39 +228,32 @@ body{
         display: none;
     }
     .write{
-        height: calc(100vh - 380px) !important;
+        /* height: calc(100% - 360px); */
+        height: 60%;
     }
     .container{
-        height: 340px;
-        width: calc(100% - 40px);
-        margin: 0 20px;
+        height: 40%;
     }
     .versionContainer{
         width: 180px;
         height: 90px;
-        margin-left: 30px;
     }
     .version{
         font-size: 12px;
     }
     .letterContainer{
-        width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr !important; 
         column-gap: 0;
-        row-gap: 0;
         border: none;
         border-top: 20px solid white;
         border-bottom: 20px solid white;
         height: 500px;
         padding: 10px;
     }
-    .letter{
-        max-height: 250px;
-    }
-    .letter>img{
-        width: auto;
-        height: 90%;
+    .letter , .letter>img{
+        width: 90%;
+        height: auto;
     }
     .rowhidden,
     .colhidden{

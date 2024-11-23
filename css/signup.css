@@ -153,8 +153,9 @@ img {
 }
 
 @media screen and (max-width: 605px) {
-    .AllContainer {
-        flex-direction: column-reverse;
+    img {
+        width: 230px;
+        height: 230px;
     }
 
     .Title {
@@ -163,6 +164,10 @@ img {
 
     .SubTitle {
         font-size: 20px;
+    }
+
+    .AllContainer {
+        flex-direction: column-reverse;
     }
 
     .AllContainer {
@@ -182,6 +187,7 @@ img {
 
     .ButtonLogin {
         height: 40px;
+        width: 280px;
     }
 
     .InputId, .InputPassword {
