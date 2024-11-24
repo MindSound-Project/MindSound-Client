@@ -34,7 +34,7 @@ rowButton.onclick = () => {
             img.src = '/image/울적한날의개굴편지지.png';
         });
 
-        letterContainerSection.style = 'grid-template-columns: 1fr; width: 300px;'
+        letterContainerSection.style = 'grid-template-columns: 1fr; width: 100%;'
         scrollAmount = 228; 
     }
 };
@@ -54,7 +54,7 @@ colButton.onclick = () => {
             img.src = '/image/울적한날의개굴편지지(세로).png';
         });
 
-        letterContainerSection.style = 'grid-template-columns: 1fr 1fr; width: 400px;'
+        letterContainerSection.style = 'grid-template-columns: 1fr 1fr; width: 100% !important;'
         scrollAmount = 125; 
     }
 };
