@@ -14,7 +14,7 @@ fileInput.addEventListener('change', (event) => {
             imageButton.style.backgroundPosition = 'center'; // 이미지 중앙 정렬
             
             // 특정 클래스의 SVG 숨기기
-            const targetSvg = imageButton.querySelector('.bi.bi-image');
+            const targetSvg = imageButton.querySelector('.img');
             if (targetSvg) {
                 targetSvg.style.display = 'none';
             }
@@ -22,3 +22,20 @@ fileInput.addEventListener('change', (event) => {
         reader.readAsDataURL(file);
     }
 });
+
+function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-button');
+
+    tabs.forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    document.getElementById(tabId).classList.add('active');
+    event.target.classList.add('active');
+}
+
