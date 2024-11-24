@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/calendar.css">
+</head>
+<body>
+    <header class="navHeader">
+        <nav class="nav">
+            <div class="logo">
+                <img src="/image/마음소리함.png" alt="">
+            </div>
+            <div class="navDiv">
+                <img src="/image/pen1.png" alt="" class="pen" style="margin-left: 146px;">
+                <a href="" class="navItem">편지 쓰기</a>
+                <a href="" class="navItem here">기록 보기</a>
+                <a href="" class="navItem">마이페이지</a>
+            </div>
+        </nav>
+    </header>
+    <div class="calendar-div">
+        <main id="calendar">
+            <div id="calendar-header">
+                <button id="prev-month"><img src="/image/left.png" alt=""></button>
+                <h1></h1>
+                <button id="next-month"><img src="/image/right.png" alt=""></button>
+            </div>
+            <div id="calendar-container">
+                
+            </div>
+        </main>
+        <div class="box">
+            <div class="bar"></div>
+            <p class="text">어떤 <span class="text-focus">감정</span>을 회상하고 싶나요?</p>
+            <div class="emotion-box">
+                <p class="emotion-text">감정 카테고리</p>
+                <img src="/image/happy.png" alt="">
+                <img src="/image/good.png" alt="">
+                <img src="/image/soso.png" alt="">
+                <img src="/image/bad.png" alt="">
+                <img src="/image/sad.png" alt="">
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" viewBox="0 0 200 100">
+                <!-- 말풍선 본체 -->
+                <path d="M100 20 
+                         Q100 10 30 10 
+                         H170 
+                         Q180 10 180 20 
+                         V60 
+                         Q180 70 170 70 
+                         H40 
+                         L20 90 
+                         Z" 
+                      fill="#000000"/>
+                <!-- 텍스트 -->
+                <text x="50" y="50" fill="white" font-size="16" font-family="Arial">말풍선 안의 텍스트</text>
+            </svg>
+              
+            <div class="data">
+                <div class="emotion-data">
+
+                </div>
+                <div class="num">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/calendar.js"></script>
+</body>
+</html>
