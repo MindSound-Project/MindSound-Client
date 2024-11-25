@@ -58,8 +58,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 85px;
-    margin-left: 270px;
+    margin-top: 123px;
+    margin-left: 220px;
     gap: 70px;
     width: 100%;
 }
@@ -67,13 +67,13 @@ body{
 .info-section {
     width: 100%;
     max-width: 622px;
-    height: 280px;
     margin: 20px auto;
     padding: 20px;
     border-radius: 0px 10px 10px 10px;
     background: #FFF;
     font-family: 'HakgyoansimChilpanjijgae';
     position: relative;
+    height: auto; /* Ensure height is auto */
 }
 
 .tabs {
@@ -110,7 +110,7 @@ body{
 }
 
 #login-info {
-    margin-top: 93px;
+    margin-top: 26px;
 }
 
 .tab-content.active {
@@ -193,12 +193,13 @@ body{
 }
 
 .sentlist {
+    margin-top: 79px;
     color: #000;
     font-family: 'HakgyoansimChilpanjijgae';
     font-size: 30px;
     font-weight: 300;
-    margin-left: 270px;
-    width: calc(100% - 270px); /* 왼쪽 마진을 고려한 너비 설정 */
+    margin-left: 220px;
+    width: calc(100% - 87px); /* 왼쪽 마진을 고려한 너비 설정 */
 }
 
 .sentlist > p {
@@ -259,7 +260,8 @@ body{
     }
 
     .sentlist {
-        margin-left: 0;
+        margin-top: 20px;
+        margin-left: 45px;
         width: 100%;
     }
 
@@ -298,6 +300,20 @@ body{
     .sentlistimg3, .sentlistimg4 {
         width: 120px;
     }
+    
+    .tabs {
+        margin-top: -43px;
+        margin-left: -9px;
+    }
+
+    .sentlist > p {
+        margin-left: 49px;
+    }
+
+    .info-section {
+        padding: 10px;
+        height: auto; /* Ensure height is auto for mobile */
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -323,6 +339,10 @@ body{
 
     .sentlistimg3, .sentlistimg4 {
         width: 100px;
+    }
+
+    .imginf {
+        margin-top: 84px;
     }
 }
 
@@ -351,11 +371,27 @@ body{
         width: 90%;
         margin: 0 auto;
     }
+
+    .sentlist > p {
+        margin-left: 28px;
+    }
 }
 
 @media screen and (max-width: 610px) {
-    .navDiv {
-        display: none; /* 네비게이션 메뉴 숨기기 */
+    .happysmallbar {
+        margin-left: 46px !important;
+    }
+
+    .smallbar {
+        margin-left: 48px;
+    }
+    
+    .goodsmallbar {
+        margin-left: 47px !important;
+    }
+    
+    #login-info {
+        margin-top: 20px;
     }
 
     .image-button {
@@ -371,12 +407,14 @@ body{
     .info-section {
         height: auto;
         padding: 15px;
+        border-radius: 10px;
     }
 
     .tabs {
-        width: 100%;
-        margin-left: 0;
-        border-radius: 10px 10px 0 0;
+        width: 64%;
+        margin-left: -15px;
+        border-radius: 30px 30px 0 0;
+        margin-top: -48px;
     }
 
     .tab-button {
@@ -386,10 +424,6 @@ body{
 
     .tab-content {
         font-size: 18px;
-    }
-
-    .emojibar {
-        gap: 10px;
     }
 
     .bigbar {
@@ -410,5 +444,11 @@ body{
 
     .sentlistimg3, .sentlistimg4 {
         width: 120px;
+    }
+
+    .info-section {
+        height: auto; /* Ensure height is auto for smaller screens */
+        padding: 15px;
+        border-radius: 0 10px 10px 10px;
     }
 }
