@@ -8,53 +8,88 @@
     <link rel="stylesheet" href="/reset.css">
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/writepink.css">
-</head>
-<body>
     <style>
         .nav {
             background: #FFC5BA;
         }
     </style>
-    <header class="navHeader">
-        <nav class="nav">
-            <div class="logo">
-                <a href="/index.html">
-                    <img src="/image/마음소리함.png" alt="">
-                </a>
-            </div>
-            <div class="navDiv">
-                <img src="/image/pen1.png" alt="" class="pen" style="margin-left: 61px;">
-                <a href="/html/letter.html" class="navItem here">편지 쓰기</a>
-                <a href="#" class="navItem">기록 보기</a>
-                <a href="/html/mypage.html" class="navItem">마이페이지</a>
-            </div>
-        </nav>
-    </header>
-    <main id="main">
-        <div class="write">
-            <a href="#" class="go">작성 완료</a>
-            <div class="letterContainer">
-                <img src="/image/울적한날의개굴편지지.png" alt="" class="letterImg">
-                <div class="letterContent">
-                    <input type="text" class="titleInput">
-                    <textarea placeholder="내용을 입력하세요" class="bodyInput"></textarea>
+</head>
+<body>
+    <div id="page-container">
+        <header class="navHeader">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="/index.html">
+                        <img src="/image/마음소리함.png" alt="">
+                    </a>
                 </div>
+                <div class="navDiv">
+                    <img src="/image/pen1.png" alt="" class="pen" style="margin-left: 61px;">
+                    <a href="/html/letter.html" class="navItem here">편지 쓰기</a>
+                    <a href="#" class="navItem">기록 보기</a>
+                    <a href="/html/mypage.html" class="navItem">마이페이지</a>
+                </div>
+            </nav>
+        </header>
+        <main id="main">
+            <div class="write">
+                <a href="#" class="go" id="completeButton">작성 완료</a>
+                <div class="letterContainer">
+                    <img src="/image/울적한날의개굴편지지.png" alt="" class="letterImg">
+                    <div class="letterContent">
+                        <input type="text" class="titleInput">
+                        <textarea placeholder="내용을 입력하세요" class="bodyInput"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="emojibc">
+                <div class="emojisc">
+                    <p class="emojip">감정 컨테이너</p>
+                    <div class="emoji">
+                        <img src="/image/happy.png" alt="" class="happy">
+                        <img src="/image/good.png" alt="" class="good">
+                        <img src="/image/soso.png" alt="" class="soso">
+                        <img src="/image/bad.png" alt="" class="bad">
+                        <img src="/image/sad.png" alt="" class="sad">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="overlay" class="hidden">
+            <div id="completedLetter">
+                <img src="/image/울적한날의개굴편지지.png" alt="" id="completedLetterImg">
+                <div id="letterContent">
+                    <div id="letterTitle"></div> <!-- 제목 표시 -->
+                    <div id="letterBody"></div> <!-- 본문 표시 -->
+                </div>
+                <button id="closeButton">닫기</button>
             </div>
         </div>
 
-        <div class="emojibc">
-            <div class="emojisc">
-                <p class="emojip">감정 컨테이너</p>
-                <div class="emoji">
-                    <img src="/image/happy.png" alt="" class="happy">
-                    <img src="/image/good.png" alt="" class="good">
-                    <img src="/image/soso.png" alt="" class="soso">
-                    <img src="/image/bad.png" alt="" class="bad">
-                    <img src="/image/sad.png" alt="" class="sad">
-                </div>
-            </div>
-        </div>
-    </main>
-
+        <script>
+            document.getElementById('completeButton').addEventListener('click', function(e) {
+                e.preventDefault();
+                var title = document.querySelector('.titleInput').value;
+                var body = document.querySelector('.bodyInput').value;
+                document.getElementById('letterTitle').textContent = title;
+                document.getElementById('letterBody').textContent = body;
+                document.getElementById('overlay').classList.remove('hidden');
+            });
+            
+            document.getElementById('closeButton').addEventListener('click', function() {
+                document.getElementById('overlay').classList.add('hidden');
+            });
+            
+            // 오버레이 클릭 시 닫히지 않도록 수정
+            document.getElementById('overlay').addEventListener('click', function(e) {
+                // 오버레이 자체를 클릭했을 때만 닫히지 않도록 함
+                if (e.target === this) {
+                    e.stopPropagation();
+                }
+            });
+        </script>
+    </div>
 </body>
 </html>
