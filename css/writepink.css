@@ -1,0 +1,431 @@
+@font-face {
+    font-family: 'HakgyoansimChilpanjijgae';
+    src: url('/font/Hakgyoansim Chilpanjiugae TTF L.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/font/PretendardVariable.ttf') format('truetype');
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: #FFEFEC;
+    overflow: hidden;
+}
+
+#page-container {
+    position: relative;
+    z-index: 1;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(248, 246, 246, 0.50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navHeader {
+    position: relative;
+    z-index: 1001;
+    /* overlay보다 높은 z-index */
+}
+
+#completedLetter {
+    width: 90%;
+    /* 이미지의 크기를 더 키우기 위해 수정 */
+    max-width: 800px;
+    /* 최대 너비를 설정 */
+    height: auto;
+    /* 비율에 맞게 자동으로 높이 조정 */
+    position: relative;
+}
+
+#completedLetterImg {
+    width: 100%;
+    /* 전체 너비를 사용 */
+    height: auto;
+    /* 비율에 맞게 자동으로 높이 조정 */
+    object-fit: contain;
+    /* 이미지가 비율을 유지하며 잘리지 않도록 설정 */
+}
+
+#main {
+    padding-top: 46px;
+    width: 100%;
+    height: calc(100vh - 27px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.go {
+    position: absolute;
+    top: calc(46px + 13px);
+    right: 20px;
+    color: #ACACAC;
+    text-decoration: none;
+    font-family: 'HakgyoansimChilpanjijgae';
+    font-size: 20px;
+    z-index: 999;
+}
+
+.write>span {
+    font-family: 'HakgyoansimChilpanjijgae';
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.write {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    height: calc(100vh - 118px);
+    margin: 0 auto;
+}
+
+.letterContainer {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 28px);
+}
+
+.letterImg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#letterContent {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    overflow-y: auto;
+    font-family: 'Pretendard';
+    white-space: pre-wrap;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+#letterContent::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+#letterTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ACACAC;
+    padding-bottom: 4px;
+}
+
+#letterBody {
+    font-size: 16px;
+    flex-grow: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+#letterBody::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.letterContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.titleInput {
+    width: 80%;
+    aspect-ratio: 15 / 1;
+    max-width: 600px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    font-family: 'Pretendard';
+    outline: none;
+    border-bottom: 2px solid #ACACAC;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-left: -156px;
+}
+
+.bodyInput {
+    font-family: 'Pretendard';
+    width: 90%;
+    aspect-ratio: 10 / 5;
+    max-width: 771px;
+    /* height: 60%; */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    outline: none;
+    resize: none;
+}
+
+#closeButton {
+    width: 111px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #FFF;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
+    font-family: 'HakgyoansimChilpanjijgae';
+    font-size: 18px;
+    position: absolute;
+    bottom: -43px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+
+.bodyInput::-webkit-scrollbar {
+    display: none;
+
+}
+
+.titleInput::placeholder,
+.bodyInput::placeholder {
+    color: #ACACAC;
+
+}
+
+.emojibc {
+    display: flex;
+    justify-content: center;
+}
+
+.emoji {
+    display: flex;
+    align-items: center;
+}
+
+.emojisc {
+    width: 656px;
+    height: 70px;
+    border-radius: 30px;
+    background: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    margin-top: -26px;
+}
+
+.emoji>img {
+    width: 45px;
+    height: 45px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.emojip {
+    color: #000;
+    font-family: 'HakgyoansimChilpanjijgae';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.emoji>img.good {
+    margin-top: -2px !important;
+    width: 56px !important;
+    height: 56px !important;
+}
+
+@media screen and (max-width: 1160px) {
+    .titleInput {
+        font-size: 28px;
+        margin-left: -147px;
+    }
+
+    .bodyInput {
+        /* width: 85%; */
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .titleInput {
+        font-size: 26px;
+        margin-bottom: 10px;
+        margin-left: -110px;
+    }
+
+    .bodyInput {
+        /* width: 80%; */
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .titleInput {
+        font-size: 22px;
+        margin-left: -50px;
+    }
+
+    .bodyInput {
+        /* width: 75%; */
+        font-size: 13px;
+    }
+
+    .emojisc {
+        width: 606px;
+        height: 62px;
+        margin-top: -49px;
+    }
+
+    @media screen and (max-width :637px) {
+        .emojisc {
+            width: 555px;
+            height: 62px;
+            margin-top: -89px;
+        }
+    }
+
+
+    @media screen and (max-width :605px) {
+        .titleInput {
+            font-size: 18px;
+            margin-left: -20px;
+            /* margin-left: -95px; */
+        }
+
+        .bodyInput {
+            /* width: 70%; */
+            font-size: 12px;
+        }
+
+        .emojisc {
+            width: 426px;
+            height: 62px;
+            margin-top: -129px;
+            gap: 10px;
+        }
+
+        .emojip {
+            font-size: 18px;
+        }
+
+        .emoji>img {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .emoji>img.good {
+            margin-top: -2px !important;
+            width: 51px !important;
+            height: 51px !important;
+        }
+    }
+
+    @media screen and (max-width :550px) {
+        .emojisc {
+            width: 356px;
+            height: 62px;
+            margin-top: -142px;
+            gap: 5px;
+        }
+
+        .emojip {
+            font-size: 15px;
+        }
+
+        .emoji>img {
+            width: 32px;
+            height: 32px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .emoji>img.good {
+            margin-top: -2px !important;
+            width: 40px !important;
+            height: 40px !important;
+        }
+    }
+
+    @media screen and (max-width :420px) {
+        .emojisc {
+            margin-top: -169px;
+        }
+
+        #closeButton {
+            width: 80px;
+            height: 28px;
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #closeButton {
+            width: 90px;
+            height: 30px;
+            font-size: 14px;
+        }
+
+        #letterContent {
+            top: 10%;
+            height: 80%;
+        }
+
+        #letterTitle {
+            font-size: 20px;
+        }
+
+        #letterBody {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        #letterTitle {
+            font-size: 18px;
+        }
+
+        #letterBody {
+            font-size: 12px;
+        }
+    }
+}
