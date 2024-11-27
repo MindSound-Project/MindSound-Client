@@ -252,7 +252,7 @@ body {
     margin-top: -26px;
 }
 
-.emoji>img {
+.emoji-container>img {
     width: 45px;
     height: 45px;
     margin: 0 10px;
@@ -266,10 +266,36 @@ body {
     font-weight: 600;
 }
 
-.emoji>img.good {
+.emoji-container>img.good {
     margin-top: -2px !important;
     width: 56px !important;
     height: 56px !important;
+}
+
+.emoji-container {
+    position: relative;
+    display: inline-block;
+}
+
+.check-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FFC5BA;
+    display: none;
+    transform: translate(-50%, -50%);
+}
+
+.check-mark::after {
+    content: '\2714';
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 1160px) {
@@ -346,14 +372,14 @@ body {
             font-size: 18px;
         }
 
-        .emoji>img {
+        .emoji-container>img {
             width: 40px;
             height: 40px;
             margin: 0 10px;
             cursor: pointer;
         }
 
-        .emoji>img.good {
+        .emoji-container>img.good {
             margin-top: -2px !important;
             width: 51px !important;
             height: 51px !important;
@@ -361,6 +387,11 @@ body {
     }
 
     @media screen and (max-width :550px) {
+        .check-mark {
+            width: 15px;
+            height: 15px;
+        }
+
         .emojisc {
             width: 356px;
             height: 62px;
@@ -372,14 +403,14 @@ body {
             font-size: 15px;
         }
 
-        .emoji>img {
+        .emoji-container>img {
             width: 32px;
             height: 32px;
             margin: 0 10px;
             cursor: pointer;
         }
 
-        .emoji>img.good {
+        .emoji-container>img.good {
             margin-top: -2px !important;
             width: 40px !important;
             height: 40px !important;
