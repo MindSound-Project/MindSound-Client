@@ -253,7 +253,7 @@ body {
     .emojisc {
         width: 356px;
         height: 62px;
-        margin-top: -159px;
+        margin-top: -142px;
         gap: 5px;
     }
 
@@ -273,4 +273,11 @@ body {
         width: 40px !important;
         height: 40px !important;
     }
+}
+
+@media screen and (max-width :420px) {
+    .emojisc {
+        margin-top: -169px;
+    }
+
 }
