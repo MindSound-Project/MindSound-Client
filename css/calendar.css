@@ -11,7 +11,7 @@
 body{
     width: 100%;
     height: 100vh;
-    background-color: #F5E6E3;
+    background-color: #FFEFEC;
     overflow: hidden;
 }
 .calendar-div{
@@ -23,19 +23,21 @@ body{
     align-items: center;
 }
 #calendar {
-    width: 700px;
-    height: auto;
+    width: 600px;
+    height: 600px;
     margin: 0;
+    margin-top: 20px;
     background-color: white;
     border-radius: 20px;
     padding: 20px 20px 20px 20px;
+    margin-top: 20px;
 }
 #calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 #calendar h1{
     font-family: 'HakgyoansimChilpanjijgae';
@@ -50,19 +52,20 @@ body{
     color: white;
     padding: 5px 8px 7px 8px;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 #calendar-container{ 
-    height: 600px;
+    height: 490px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: 1fr repeat(auto-fit, 1fr 2fr);
+    /* grid-template-rows: 1fr repeat(auto-fit, 1fr 2fr); */
+    grid-template-rows: 1fr repeat(auto-fit, 2fr);
     margin-bottom: 20px;
 }
 .item {
     display: grid;
     place-items: center;
     font-family: 'Pretendard';
-    font-size: 20px;
 }
 .item:not(.other-month) {
     cursor: pointer; 
@@ -71,7 +74,6 @@ body{
     color: #aaa;
     border-bottom: 0.5px solid #ACACAC;
     padding-bottom: 10px;
-    font-size: 23px;
     margin-bottom: 10px;
 }
 .item:nth-child(7n+1){
@@ -87,15 +89,52 @@ body{
     display: none;
 }
 
+#calendar-container > article {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    place-items: center;
+    font-family: 'Pretendard';
+    font-size: 15px;
+}
+#calendar-container > article > section {
+    width: 53%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    overflow-x: scroll;
+    scrollbar-width: 0;
+}
+/* #calendar-container > article > section::-webkit-scrollbar {
+    display: none;
+} */
+#calendar-container > article > section::-webkit-scrollbar {
+  height: 5px;
+}
+#calendar-container > article > section::-webkit-scrollbar-thumb {
+    background-color: #ffe9e9;
+    border-radius: 10px;
+    /* box-shadow: inset 0px 0px 5px #ffffff; */
+}
+#calendar-container > article > section::-webkit-scrollbar-track {
+  /* background-color: grey; */
+  border-radius: 10px;
+}
+.item img {
+    height: 40px;
+    width: 40px;
+    aspect-ratio: 1 / 1;
+}
+
 @media screen and (max-Width:1160px){
     #calendar {
-        width: 600px;
+        width: 500px;
+        height: 550px;
     }
     #calendar h1{
         font-size: 40px;
     }
     #calendar-container{
-        height: 500px;
+        height: 450px;
     }
     .week-name {
         font-size: 18px;
@@ -104,29 +143,37 @@ body{
 
 @media screen and (max-Width:610px){
     #calendar {
-        width: 400px;
+        width: 300px;
+        height: 300px;
         margin-bottom: 350px;
+        padding: 10px;
     }
     #calendar h1{
-        font-size: 25px;
+        font-size: 15px;
     }
     #calendar-header {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     #prev-month, 
     #next-month {
-        width: 10px;
-        height: 13px;
+        width: 5px;
+        height: 6px;
         padding: 0;
     }
     #calendar-container{ 
-        height: 350px;
+        height: 250px;
+    }
+    #calendar-container > .item > div {
+        font-size: 10px;
+    }
+    #calendar-container > .item img {
+        width: 25px;
+        height: 25px;
     }
     .week-name {
-        font-size: 18px;
-    }
-    .item {
-        font-size: 15px;
+        font-size: 10px;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
     }
     .box {
         width: 100%;
@@ -156,18 +203,60 @@ body{
     }
     .emotion-box {
         font-family: 'HakgyoansimChilpanjijgae';
-        width: 256px;
+        width: auto;
         height: 34px;
         display: flex;
         align-items: center;
+        border-radius: 30px;
+        padding: 5px 10px;
+        box-shadow: 0 0 12px rgba(255, 160, 160, 25%);
         margin-top: 15px;
         column-gap: 7px;
+        box-sizing: content-box;
     }
     .emotion-text {
         margin-right: 4px;
     }
     .emotion-box > img {
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
+    }
+    .bubble {
+        display: flex;
+        width: auto;
+        height: auto;
+        position: relative;
+        font-family: 'HakgyoansimChilpanjijgae';
+    }
+    .bubble-img {
+        width: 150px;
+        height: 150px;
+        margin-top: 50px;
+    }
+    .bubble-text {
+        width: 140px;
+        position: absolute;
+        top: 40px;
+        right: 30px;
+        text-align: center;
+        line-height: 23px;
+    }
+    .date {
+        font-weight: bold;
+    }
+    .choose-emotion {
+        display: flex;
+        height: 200px;
+    }
+    .choose-emotion img {
+        width: 100px;
+        height: 100px;
+        align-self: self-end;
+    }
+    .chdate {
+        position: absolute;
+        top: 40px;
+        left: 30px;
+        width: 150px;
     }
 }
