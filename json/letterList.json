@@ -1,63 +1,68 @@
 [
-    {
-      "image_url": "image_url_1",
-      "emotion_category": "Happy",
-      "date": "2024-11-21",
-      "email": "example1@example.com"
-    },
-    {
-      "image_url": "image_url_2",
-      "emotion_category": "Good",
-      "date": "2024-11-20",
-      "email": "example2@example.com" 
-    },
-    {
-      "image_url": "image_url_3",
-      "emotion_category": "Soso",
-      "date": "2024-11-19",
-      "email": "example3@example.com"
-    },
-    {
-      "image_url": "image_url_4",
-      "emotion_category": "Bad",
-      "date": "2024-11-18",
-      "email": "example4@example.com"
-    },
-    {
-      "image_url": "image_url_5",
-      "emotion_category": "Sad",
-      "date": "2024-11-17",
-      "email": "example5@example.com"
-    },
-    {
-      "image_url": "image_url_1",
-      "emotion_category": "Happy",
-      "date": "2024-11-21",
-      "email": "example1@example.com"
-    },
-    {
-      "image_url": "image_url_2",
-      "emotion_category": "Good",
-      "date": "2024-11-20",
-      "email": "example2@example.com"
-    },
-    {
-      "image_url": "image_url_3",
-      "emotion_category": "Soso",
-      "date": "2024-11-19",
-      "email": "example3@example.com"
-    },
-    {
-      "image_url": "image_url_4",
-      "emotion_category": "Bad",
-      "date": "2024-11-18",
-      "email": "example4@example.com"
-    },
-    {
-      "image_url": "image_url_5",
-      "emotion_category": "Sad",
-      "date": "2024-11-17",
-      "email": "example5@example.com"
-    }
+  {
+    "image_url": "image_url_1",
+    "emotion_category": "happy",
+    "date": "2024-11-21",
+    "email": ""
+  },
+  {
+    "image_url": "image_url_2",
+    "emotion_category": "good",
+    "date": "2024-11-20",
+    "email": "" 
+  },
+  {
+    "image_url": "image_url_3",
+    "emotion_category": "soso",
+    "date": "2024-11-19",
+    "email": ""
+  },
+  {
+    "image_url": "image_url_4",
+    "emotion_category": "bad",
+    "date": "2024-11-18",
+    "email": ""
+  },
+  {
+    "image_url": "image_url_5",
+    "emotion_category": "",
+    "date": "2024-11-17",
+    "email": "example5@example.com"
+  },
+  {
+    "image_url": "image_url_1",
+    "emotion_category": "",
+    "date": "2024-11-21",
+    "email": "example1@example.com"
+  },
+  {
+    "image_url": "image_url_2",
+    "emotion_category": "",
+    "date": "2024-11-20",
+    "email": "example2@example.com"
+  },
+  {
+    "image_url": "image_url_3",
+    "emotion_category": "soso",
+    "date": "2024-11-19",
+    "email": "example3@example.com"
+  },
+  {
+    "image_url": "image_url_4",
+    "emotion_category": "bad",
+    "date": "2024-11-18",
+    "email": "example4@example.com"
+  },
+  {
+    "image_url": "image_url_4",
+    "emotion_category": "bad",
+    "date": "2024-11-01",
+    "email": ""
+  },
+  {
+    "image_url": "image_url_5",
+    "emotion_category": "sad",
+    "date": "2024-11-17",
+    "email": "example5@example.com"
+  }
 ]
-  

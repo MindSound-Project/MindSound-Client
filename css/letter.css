@@ -57,6 +57,7 @@ body{
     padding: 30px 0;
     width: 100%;
     height: calc(100vh - 50px);
+    transition: width 0.5s ease, height 0.5s ease;
 }
 .col{
     color: #ACACAC;
@@ -80,7 +81,7 @@ body{
     display: flex;
     flex-direction: row;
     padding: 30px 0;
-    transition: transform 0.5s ease; /* 부드러운 이동 효과 */
+    transition: transform 0.8s ease-in-out, margin-bottom 0.8s ease-in-out; 
 }
 .versionContainer{
     display: flex;
@@ -133,14 +134,14 @@ body{
     font-size: 13px;
 }
 .rowhidden{
-    transform: translateX(280px); 
-    transition: transform 0.5s ease; 
-    margin-left: -280px;
+    transform: translateX(275px); 
+    transition: transform 0.6s ease; 
+    margin-left: -275px;
 }
 .colhidden{
-    transform: translateX(380px); 
-    transition: transform 0.5s ease; 
-    margin-left: -380px;
+    transform: translateX(660px); 
+    transition: transform 1s ease; 
+    margin-left: -660px;
 }
 @media screen and (max-Width:1160px){
     #main{
@@ -173,6 +174,7 @@ body{
         margin: 0 30px;
         padding: 0;
         bottom: 0;
+        transition: transform 0.4s ease-in-out, margin-bottom 0.4s ease-in-out; 
     }
     .versionContainer{
         flex-direction: row;
@@ -208,11 +210,9 @@ body{
     }
     .rowhidden,
     .colhidden{
+        margin-bottom: -210px;
         transform: translateX(0); 
-        margin-left: 0;
-        transition: transform 0.5s ease; 
-        margin-bottom: -200px;
-        transform: translateY(-200);
+        transform: translateY(-210);
     }
     .down{
         height: calc(100vh - 100px);
@@ -274,6 +274,7 @@ body{
     }
     .rowhidden,
     .colhidden{
+        transition: transform 0.5s ease;
         transform: translateY(0); 
         margin-bottom: 0;
     }
