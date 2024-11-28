@@ -17,7 +17,7 @@ const writeDiv = document.getElementsByClassName('write')[0];
 const containerDiv = document.getElementsByClassName('container')[0];
 
 // 한 번에 움직일 픽셀 값 (조절 가능)
-let scrollAmount = 228; 
+let scrollAmount = 228;
 
 // 가로 버튼 클릭 이벤트
 rowButton.onclick = () => {
@@ -35,7 +35,7 @@ rowButton.onclick = () => {
         });
 
         letterContainerSection.style = 'grid-template-columns: 1fr; width: 100%;'
-        scrollAmount = 228; 
+        scrollAmount = 228;
     }
 };
 
@@ -55,7 +55,7 @@ colButton.onclick = () => {
         });
 
         letterContainerSection.style = 'grid-template-columns: 1fr 1fr; width: 100% !important;'
-        scrollAmount = 125; 
+        scrollAmount = 125;
     }
 };
 
@@ -75,7 +75,7 @@ writeDiv.addEventListener('click', () => {
         containerDiv.classList.remove('colhidden');
         containerDiv.classList.add('rowhidden');
     }
-    else{
+    else {
         containerDiv.classList.remove('rowhidden');
         containerDiv.classList.add('colhidden');
     }
@@ -95,12 +95,21 @@ letterContainer.addEventListener('click', () => {
     writeDiv.classList.remove('down');
 });
 
-document.getElementById('writeButton').addEventListener('click', function() {
-    window.location.href = '/html/write.html';
-});
-
 letterImagesImg.forEach((imgElement) => {
     imgElement.addEventListener('click', () => {
         letterImg.src = imgElement.src;
     })
 })
+
+// 'go' 버튼 클릭 이벤트 추가
+document.getElementsByClassName('go')[0].addEventListener('click', function () {
+    if (letterImg) {
+        // URL 인코딩 처리
+        const encodedImgSrc = encodeURIComponent(letterImg.src);
+
+        // URL에 이미지 경로 전달
+        window.location.href = `/html/write.html?img=${encodedImgSrc}`;
+    } else {
+        console.error("letterImg 요소를 찾을 수 없습니다.");
+    }
+});

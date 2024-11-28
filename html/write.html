@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/write.css">
 </head>
+
 <body>
     <style>
         .nav {
@@ -32,7 +34,7 @@
     </header>
     <main id="main">
         <div class="write">
-            <a href="/html/send.html" class="go">작성 완료</a>
+            <a href="#" class="go">작성 완료</a>
             <div class="letterContainer">
                 <img src="/image/울적한날의개굴편지지.png" alt="" class="letterImg">
                 <div class="letterContent">
@@ -42,6 +44,58 @@
             </div>
         </div>
     </main>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        const storageKey = 'letterImages';
 
+        document.getElementsByClassName('go')[0].addEventListener('click', async () => {
+            try {
+                console.log("Button clicked");
+                const captureArea = document.getElementsByClassName('write')[0];
+                if (!captureArea) {
+                    console.error("Capture area not found!");
+                    alert("Error: Capture area not found.");
+                    return;
+                }
+
+                console.log("Starting html2canvas...");
+                const canvas = await html2canvas(captureArea);
+
+                console.log("Canvas generated successfully.");
+                const imageData = canvas.toDataURL('image/png');
+
+                console.log("Saving to localStorage...");
+                const savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
+                savedImages.push(imageData);
+                localStorage.setItem(storageKey, JSON.stringify(savedImages));
+
+                console.log("Image saved to localStorage.");
+                // alert('Image saved!');
+            } catch (error) {
+                console.error("An error occurred:", error);
+                alert('An error occurred. Check the console for details.');
+            }
+        });
+
+        document.getElementsByClassName('go')[0].addEventListener('click', function () {
+            setTimeout(function () {
+                window.location.href = '/html/send.html';
+            }, 500);
+        });
+
+        // URL에서 img 파라미터 읽기
+        const params = new URLSearchParams(window.location.search);
+        const imgSrc = decodeURIComponent(params.get('img'));
+
+        // 이미지가 전달된 경우 표시
+        if (imgSrc) {
+            const letterImg = document.getElementsByClassName('letterImg')[0];
+            letterImg.src = imgSrc;
+        } else {
+            console.error("img 파라미터가 전달되지 않았습니다.");
+        }
+
+    </script>
 </body>
+
 </html>
