@@ -1,0 +1,285 @@
+@font-face {
+    font-family: 'HakgyoansimChilpanjijgae';
+    src: url('/font/Hakgyoansim Chilpanjiugae TTF L.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/font/PretendardVariable.ttf') format('truetype');
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #FFEFEC;
+    overflow: hidden;
+}
+#main{
+    padding-top: 46px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.go {
+    position: absolute;
+    z-index: 10;
+    top: calc(46px + 13px);
+    right: 20px;
+    color: #ACACAC;
+    text-decoration: none;
+    font-family: 'HakgyoansimChilpanjijgae';
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer; /* 커서 변경 */
+}
+.write>span{
+    font-family: 'HakgyoansimChilpanjijgae';
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.left{
+    display: none;
+}
+.right{
+    display: none;
+}
+.left:hover{
+    cursor: pointer;
+}
+.right:hover{
+    cursor: pointer;
+}
+.write{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    width: 100%;
+    height: calc(100vh - 50px);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+.col{
+    color: #ACACAC;
+}
+.versionColor1{
+    color: black;
+}
+.versionColor2{
+    color: #ACACAC;
+}
+.letterImg{
+    height: calc(100% - 28px);
+    object-fit: contain;
+}
+.version , .letter>span{
+    font-family: 'Pretendard';
+}
+.container{
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 30px 0;
+    transition: transform 0.8s ease-in-out, margin-bottom 0.8s ease-in-out; 
+}
+.versionContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    gap: 25px;
+    width: 50px;
+    height: 230px;
+    border-radius: 30px 0 0 30px;
+    padding-left: 8px;
+    margin-top: 50px;
+}
+.version{
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 14px;
+    background-color: white;
+    border: none;
+}
+.version:hover{
+    cursor: pointer;
+}
+.letterContainer{
+    display: grid;
+    overflow: auto; 
+    scrollbar-width: none;
+    grid-template-columns: 1fr; 
+    background-color: white;
+    border-radius: 30px 0 0 30px;
+    border-top: 20px solid white;
+    border-bottom: 20px solid white;
+    width: 300px !important;
+    row-gap: 30px;
+    justify-items: center;
+    margin-top: 25px;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+.letter{
+    flex-shrink: 0;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.letter>span{
+    font-size: 13px;
+}
+.rowhidden{
+    transform: translateX(275px); 
+    transition: transform 0.6s ease; 
+    margin-left: -275px;
+}
+.colhidden{
+    transform: translateX(660px); 
+    transition: transform 1s ease; 
+    margin-left: -660px;
+}
+@media screen and (max-Width:1160px){
+    #main{
+        flex-direction: column;
+    }
+    .left{
+        display: inline;
+        width: 14px;
+        padding: 3px;
+        position: absolute;
+        left: 12px;
+        bottom: 35%;
+    }
+    .right{
+        display: inline;
+        width: 14px;
+        padding: 3px;
+        position: absolute;
+        right: 12px;
+        bottom: 35%;
+    }
+    .write{
+        height: calc(100vh - 300px);
+    }
+    .container{
+        width: calc(100% - 60px);
+        position: absolute;
+        height: 270px;
+        flex-direction: column;
+        margin: 0 30px;
+        padding: 0;
+        bottom: 0;
+        transition: transform 0.4s ease-in-out, margin-bottom 0.4s ease-in-out; 
+    }
+    .versionContainer{
+        flex-direction: row;
+        margin-top: 0;
+        margin-left: 40px;
+        border-radius: 30px 30px 0 0;
+        width: 230px;
+        height: 50px;
+    }
+    .version{
+        writing-mode: horizontal-tb; 
+        text-orientation: mixed;
+        font-size: 13px;
+    }
+    .letterContainer{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+        overflow: auto;
+        height: 100%;
+        width: 100% !important;
+        margin-top: 0;
+        border-radius: 30px 30px 0 0;
+        border: none;
+        border-left: 50px solid white;
+        border-right: 50px solid white;
+        padding: 10px 0;
+    }
+    .letter , .letter>img{
+        width: auto;
+        height: 88%;
+    }
+    .rowhidden,
+    .colhidden{
+        margin-bottom: -210px;
+        transform: translateX(0); 
+        transform: translateY(-210);
+    }
+    .down{
+        height: calc(100vh - 100px);
+    }
+}
+@media screen and (max-Width:605px){
+    #main{
+        justify-content: space-between;
+    }
+    .go{
+        top: auto;
+        height: 20px;
+        position: fixed;
+        bottom: 310px;
+        font-size: 18px;
+        right: 50px;
+        z-index: 1000;
+    }
+    .left{
+        display: none;
+    }
+    .right{
+        display: none;
+    }
+    .write{
+        height: calc(100vh - 380px) !important;
+    }
+    .container{
+        height: 340px;
+        width: calc(100% - 40px);
+        margin: 0 20px;
+    }
+    .versionContainer{
+        width: 180px;
+        height: 90px;
+        margin-left: 30px;
+    }
+    .version{
+        font-size: 12px;
+    }
+    .letterContainer{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr !important; 
+        column-gap: 0;
+        row-gap: 0;
+        border: none;
+        border-top: 20px solid white;
+        border-bottom: 20px solid white;
+        height: 500px;
+        padding: 10px;
+    }
+    .letter{
+        max-height: 250px;
+    }
+    .letter>img{
+        width: auto;
+        height: 90%;
+    }
+    .rowhidden,
+    .colhidden{
+        transition: transform 0.5s ease;
+        transform: translateY(0); 
+        margin-bottom: 0;
+    }
+}
