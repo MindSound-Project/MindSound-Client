@@ -38,7 +38,7 @@
               </svg>
             <input type="password" class="InputPassword" placeholder="비밀번호 입력하기">
         </div>
-            <a href="/html/select.html"><input type="button" class="ButtonLogin" value="로그인 하기"></a>
+            <input type="button" id="loginButton" class="ButtonLogin" value="로그인 하기">
             <a href="/html/signup.html"><p class="SignUp">회원가입 하기</p></a>
     </div>
 
@@ -47,7 +47,26 @@
             setTimeout(function() {
                 document.querySelector('.AllLoginContainer').style.opacity = '1';
             }, 500);
-        };        
+        }; 
+        
+        document.getElementById('loginButton').addEventListener('click', function() {
+            const inputId = document.querySelector('.InputId').value;
+            const inputPassword = document.querySelector('.InputPassword').value;
+        
+            fetch('/json/user.json')
+                .then(response => response.json())
+                .then(data => {
+                    const user = data.users.find(u => u.id === inputId && u.password === inputPassword);
+                    if (user) {
+                        // 로그인 성공 시 사용자 정보를 세션 스토리지에 저장
+                        sessionStorage.setItem('currentUser', JSON.stringify(user));
+                        window.location.href = '/html/select.html';
+                    } else {
+                        alert('아이디 또는 비밀번호가 올바르지 않습니다.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
     </script>
 </body>
 </html>

@@ -20,12 +20,18 @@
             </div>
         </div>
         <div class="SelectContainer">
-            <div class="SelectOther">
+            <div class="SelectOther" id="selectOther">
                 <p class="WriteOther1"><span class="Accent">타인</span></p>
                 <p class="WriteOther2">에게 작성하기</p>
             </div>
         </div>
     </div>
+    
+    <script>
+        document.getElementById('selectOther').addEventListener('click', function() {
+            window.location.href = '/html/letter.html';
+        });
+    </script>
 </body>
 
 </html>

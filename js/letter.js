@@ -94,3 +94,7 @@ letterContainer.addEventListener('click', () => {
     containerDiv.classList.remove('rowhidden');
     writeDiv.classList.remove('down');
 });
+
+document.getElementById('writeButton').addEventListener('click', function() {
+    window.location.href = '/html/write.html';
+});
