@@ -14,18 +14,28 @@
     <img src="/image/나타인선택.png" alt="">
     <div class="SelectMeOther">
         <div class="SelectContainer">
-            <div class="SelectMe">
+            <div class="SelectMe" id="selectMe">
                 <p class="WriteMe1"><span class="Accent">나</span></p>
                 <p class="WriteMe2">에게 작성하기</p>
             </div>
         </div>
         <div class="SelectContainer">
-            <div class="SelectOther">
+            <div class="SelectOther" id="selectOther">
                 <p class="WriteOther1"><span class="Accent">타인</span></p>
                 <p class="WriteOther2">에게 작성하기</p>
             </div>
         </div>
     </div>
+    
+    <script>
+        document.getElementById('selectOther').addEventListener('click', function() {
+            window.location.href = '/html/letter.html';
+        });
+
+        document.getElementById('selectMe').addEventListener('click', function() {
+            window.location.href = '/html/letterpink.html';
+        });
+    </script>
 </body>
 
 </html>

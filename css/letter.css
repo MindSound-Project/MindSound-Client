@@ -23,15 +23,19 @@ body{
     justify-content: space-between;
     overflow: hidden;
 }
-.go{
+.go {
     position: absolute;
+    z-index: 10;
     top: calc(46px + 13px);
     right: 20px;
     color: #ACACAC;
     text-decoration: none;
     font-family: 'HakgyoansimChilpanjijgae';
     font-size: 20px;
-
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer; /* 커서 변경 */
 }
 .write>span{
     font-family: 'HakgyoansimChilpanjijgae';

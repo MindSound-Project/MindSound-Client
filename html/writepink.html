@@ -26,7 +26,7 @@
                 <div class="navDiv">
                     <img src="/image/pen1.png" alt="" class="pen" style="margin-left: 61px;">
                     <a href="/html/letter.html" class="navItem here">편지 쓰기</a>
-                    <a href="#" class="navItem">기록 보기</a>
+                    <a href="/html/calendar.html" class="navItem">기록 보기</a>
                     <a href="/html/mypage.html" class="navItem">마이페이지</a>
                 </div>
             </nav>
@@ -47,11 +47,26 @@
                 <div class="emojisc">
                     <p class="emojip">감정 컨테이너</p>
                     <div class="emoji">
-                        <img src="/image/happy.png" alt="" class="happy">
-                        <img src="/image/good.png" alt="" class="good">
-                        <img src="/image/soso.png" alt="" class="soso">
-                        <img src="/image/bad.png" alt="" class="bad">
-                        <img src="/image/sad.png" alt="" class="sad">
+                        <div class="emoji-container">
+                            <img src="/image/happy.png" alt="" class="happy emotion-img">
+                            <div class="check-mark"></div>
+                        </div>
+                        <div class="emoji-container">
+                            <img src="/image/good.png" alt="" class="good emotion-img">
+                            <div class="check-mark"></div>
+                        </div>
+                        <div class="emoji-container">
+                            <img src="/image/soso.png" alt="" class="soso emotion-img">
+                            <div class="check-mark"></div>
+                        </div>
+                        <div class="emoji-container">
+                            <img src="/image/bad.png" alt="" class="bad emotion-img">
+                            <div class="check-mark"></div>
+                        </div>
+                        <div class="emoji-container">
+                            <img src="/image/sad.png" alt="" class="sad emotion-img">
+                            <div class="check-mark"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,7 +79,9 @@
                     <div id="letterTitle"></div> <!-- 제목 표시 -->
                     <div id="letterBody"></div> <!-- 본문 표시 -->
                 </div>
-                <button id="closeButton">닫기</button>
+                <a href="/html/calendar.html">
+                    <button id="closeButton">닫기</button>
+                </a>
             </div>
         </div>
 
@@ -88,6 +105,18 @@
                 if (e.target === this) {
                     e.stopPropagation();
                 }
+            });
+
+            document.querySelectorAll('.emotion-img').forEach(img => {
+                img.addEventListener('click', function() {
+                    // 모든 체크 마크 숨기기
+                    document.querySelectorAll('.check-mark').forEach(mark => {
+                        mark.style.display = 'none';
+                    });
+                    
+                    // 클릭된 이미지의 체크 마크 표시
+                    this.nextElementSibling.style.display = 'block';
+                });
             });
         </script>
     </div>

@@ -1,0 +1,9 @@
+{
+  "name": "MindSound-Client",
+  "version": "1.0.0",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.9.16"
+  }
+}
