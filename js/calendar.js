@@ -28,22 +28,11 @@ prevMonthButton.addEventListener("click", () => changeMonth(-1));
 const nextMonthButton = document.querySelector("#next-month");
 nextMonthButton.addEventListener("click", () => changeMonth(1));
 
-const addTest = () => {
-    for (let x = 0; x < 7; x++) {
-        let test = document.createElement("div"); // <div></div>
-        test.className = "test item"; // <div class="item"></div>
-        test.textContent = "😁"; // <div class="item">1</div>
-        calendarContainerDiv.appendChild(test);
-    }
-}
-
-
 const chooseDate = (emotion) => {
     const chdateP = document.getElementsByClassName('chdate')[0];
     let chdateTeset = currentMonth+"월"
     async function Date() {
         try {
-            console.log("함?");
             const response = await fetch('/json/letterList.json');
             const data = await response.json();
 
@@ -56,7 +45,6 @@ const chooseDate = (emotion) => {
                     console.log(emotion);
                     if(item.emotion_category == emotion) {
                         chdateTeset += " "+arrDate[2]+"일";
-                        console.log("ssssssssssssssss");
                     }
                 }
             }
