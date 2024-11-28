@@ -234,20 +234,14 @@ body::-webkit-scrollbar {
     padding-bottom: 20px;
     width: 100%;
     white-space: nowrap;
+    padding-right: 120px;
 }
 
 .sentlistimg {
     flex: 0 0 auto;
     height: 233.566px;
+    width: auto;
     object-fit: cover;
-}
-
-.sentlistimg1, .sentlistimg2 {
-    width: 345.272px;
-}
-
-.sentlistimg3, .sentlistimg4 {
-    width: 158.331px;
 }
 
 .setlist-img::-webkit-scrollbar {
@@ -312,14 +306,7 @@ body::-webkit-scrollbar {
 
     .sentlistimg {
         height: 180px;
-    }
-
-    .sentlistimg1, .sentlistimg2 {
-        width: 260px;
-    }
-
-    .sentlistimg3, .sentlistimg4 {
-        width: 120px;
+        width: auto;
     }
     
     .tabs {
@@ -352,14 +339,7 @@ body::-webkit-scrollbar {
 
     .sentlistimg {
         height: 150px;
-    }
-
-    .sentlistimg1, .sentlistimg2 {
-        width: 220px;
-    }
-
-    .sentlistimg3, .sentlistimg4 {
-        width: 100px;
+        width: auto;
     }
 
     .imginf {
@@ -457,14 +437,7 @@ body::-webkit-scrollbar {
 
     .sentlistimg {
         height: 180px;
-    }
-
-    .sentlistimg1, .sentlistimg2 {
-        width: 260px;
-    }
-
-    .sentlistimg3, .sentlistimg4 {
-        width: 120px;
+        width: auto;
     }
 
     .info-section {
