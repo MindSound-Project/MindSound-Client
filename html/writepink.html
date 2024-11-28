@@ -120,5 +120,29 @@
             });
         </script>
     </div>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        const storageKey = 'letterImages';
+        // 캡처 버튼 클릭 이벤트
+        document.getElementById('completeButton').addEventListener('click', async () => {
+            const captureArea = document.getElementById('completedLetter');
+            
+            // html2canvas으로 영역 캡처
+            const canvas = await html2canvas(captureArea);
+            
+            // 캡처된 이미지를 Base64 형식으로 변환
+            const imageData = canvas.toDataURL('image/png');
+            
+            // 기존 저장된 이미지 배열 가져오기
+            const savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
+            
+            // 새 이미지를 배열에 추가
+            savedImages.push(imageData);
+            
+            // 배열을 다시 localStorage에 저장
+            localStorage.setItem(storageKey, JSON.stringify(savedImages));
+            // alert('Image saved!');
+        });
+    </script>
 </body>
 </html>
