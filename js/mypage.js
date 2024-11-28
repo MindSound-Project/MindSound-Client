@@ -39,3 +39,25 @@ function showTab(tabId) {
     event.target.classList.add('active');
 }
 
+const loadImg = () => {
+    const storageKey = 'letterImages';
+    // const setlistImgDiv = document.getElementsByClassName('setlist-img')[0];
+    const savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
+    const imageList = document.getElementsByClassName('setlist-img')[0];
+
+    // 기존 이미지를 모두 제거
+    imageList.innerHTML = '';
+    // 저장된 이미지를 각각 <img> 태그로 표시
+    savedImages.reverse().forEach((image, index) => {
+        const img = document.createElement('img');
+        img.src = image;
+        img.alt = `Captured Image ${index + 1}`;
+        img.classList.add('sentlistimg'); // 'sentlistimg' 클래스 추가
+        img.classList.add(`sentlistimg${index + 1}`); // 동적으로 클래스 추가
+        imageList.appendChild(img);
+    })
+    if (savedImages.length === 0) {
+        alert('No images found in localStorage.');
+    }
+}
+loadImg();
