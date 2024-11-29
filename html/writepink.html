@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="page-container">
         <header class="navHeader">
@@ -86,7 +88,7 @@
         </div>
 
         <script>
-            document.getElementById('completeButton').addEventListener('click', function(e) {
+            document.getElementById('completeButton').addEventListener('click', function (e) {
                 e.preventDefault();
                 var title = document.querySelector('.titleInput').value;
                 var body = document.querySelector('.bodyInput').value;
@@ -95,13 +97,13 @@
                 document.getElementById('overlay').classList.remove('hidden');
                 document.getElementById('completedLetterImg').src = document.getElementsByClassName('letterImg')[0].src;
             });
-            
-            document.getElementById('closeButton').addEventListener('click', function() {
+
+            document.getElementById('closeButton').addEventListener('click', function () {
                 document.getElementById('overlay').classList.add('hidden');
             });
-            
+
             // 오버레이 클릭 시 닫히지 않도록 수정
-            document.getElementById('overlay').addEventListener('click', function(e) {
+            document.getElementById('overlay').addEventListener('click', function (e) {
                 // 오버레이 자체를 클릭했을 때만 닫히지 않도록 함
                 if (e.target === this) {
                     e.stopPropagation();
@@ -109,53 +111,143 @@
             });
 
             document.querySelectorAll('.emotion-img').forEach(img => {
-                img.addEventListener('click', function() {
+                img.addEventListener('click', function () {
                     // 모든 체크 마크 숨기기
                     document.querySelectorAll('.check-mark').forEach(mark => {
                         mark.style.display = 'none';
                     });
-                    
+
                     // 클릭된 이미지의 체크 마크 표시
                     this.nextElementSibling.style.display = 'block';
                 });
             });
 
             // URL에서 img 파라미터 읽기
-        const params = new URLSearchParams(window.location.search);
-        const imgSrc = decodeURIComponent(params.get('img'));
+            const params = new URLSearchParams(window.location.search);
+            const imgSrc = decodeURIComponent(params.get('img'));
 
-        // 이미지가 전달된 경우 표시
-        if (imgSrc) {
-            const letterImg = document.getElementsByClassName('letterImg')[0];
-            letterImg.src = imgSrc;
-        } else {
-            console.error("img 파라미터가 전달되지 않았습니다.");
-        }
+            // 이미지가 전달된 경우 표시
+            if (imgSrc) {
+                const letterImg = document.getElementsByClassName('letterImg')[0];
+                letterImg.src = imgSrc;
+            } else {
+                console.error("img 파라미터가 전달되지 않았습니다.");
+            }
         </script>
     </div>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script>
+
+
+        // json 추가
+        let image_url = "";
+        let emotion_category = "";
+        let date = new Date().toISOString().split('T')[0];
+        let email = "";
+        const chemotion = document.querySelectorAll('.emotion-img');
+        chemotion.forEach(emotion => {
+            emotion.addEventListener('click', () => {
+                emotion_category = emotion.className.split(' ')[0];
+            });
+        });
+
+
         const storageKey = 'letterImages';
         // 캡처 버튼 클릭 이벤트
+        /*
         document.getElementById('completeButton').addEventListener('click', async () => {
             const captureArea = document.getElementById('completedLetter');
-            
+
             // html2canvas으로 영역 캡처
             const canvas = await html2canvas(captureArea);
-            
+
             // 캡처된 이미지를 Base64 형식으로 변환
             const imageData = canvas.toDataURL('image/png');
-            
+            image_url = imageData;
+
             // 기존 저장된 이미지 배열 가져오기
-            const savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
-            
+            try {
+                const savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
+                if (JSON.stringify(savedImages).length + imageData.length > 5000000) {
+                    alert("저장 공간이 부족합니다!");
+                } else {
+                    savedImages.push(imageData);
+                    localStorage.setItem(storageKey, JSON.stringify(savedImages));
+                    alert('이미지가 저장되었습니다!');
+                }
+            } catch (e) {
+                console.error("이미지 저장 중 에러:", e);
+            }
+
+
             // 새 이미지를 배열에 추가
             savedImages.push(imageData);
-            
+
             // 배열을 다시 localStorage에 저장
             localStorage.setItem(storageKey, JSON.stringify(savedImages));
             // alert('Image saved!');
+
+            // json 추가 
+            const newLetter = {
+                image_url,
+                emotion_category,
+                date,
+                email
+            };
+
+            fetch('/json/letterList.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.push(newLetter);
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching JSON:', error);
+                });
         });
+        */
+
+        document.getElementById('completeButton').addEventListener('click', async () => {
+            const captureArea = document.getElementById('completedLetter');
+        
+            // html2canvas으로 영역 캡처
+            const canvas = await html2canvas(captureArea);
+        
+            // 캡처된 이미지를 Base64 형식으로 변환
+            const imageData = canvas.toDataURL('image/png');
+            image_url = imageData;
+        
+            // 기존 저장된 이미지 배열 가져오기
+            let savedImages = [];
+            try {
+                savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
+                if (JSON.stringify(savedImages).length + imageData.length > 5000000) {
+                    alert("저장 공간이 부족합니다!");
+                } else {
+                    savedImages.push(imageData);
+                    localStorage.setItem(storageKey, JSON.stringify(savedImages));
+                    alert('이미지가 저장되었습니다!');
+                }
+            } catch (e) {
+                console.error("이미지 저장 중 에러:", e);
+            }
+        
+            // 새 데이터를 localStorage에 추가
+            const newLetter = {
+                image_url,
+                emotion_category,
+                date,
+                email
+            };
+        
+            let letters = JSON.parse(localStorage.getItem('letters')) || []; // 기존 JSON 데이터를 localStorage에서 가져오기
+            letters.push(newLetter); // 새 데이터 추가
+            localStorage.setItem('letters', JSON.stringify(letters)); // 다시 저장
+            alert('새 편지가 추가되었습니다!');
+        });
+        
+
     </script>
 </body>
+
 </html>
