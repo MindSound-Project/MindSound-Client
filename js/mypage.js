@@ -107,3 +107,31 @@ const statistic = async () => {
 
 };
 statistic();
+
+// JSON 데이터를 로딩하는 함수
+fetch('/json/user.json')
+  .then(response => response.json())
+  .then(data => {
+    const userIdElement = document.getElementById('user-id');
+    const userPasswordElement = document.getElementById('user-password');
+    const user = data.users[0];
+
+    userIdElement.textContent = `아이디 : ${user.id}`;
+    userPasswordElement.textContent = `비밀번호 : ${user.password}`;
+  })
+  .catch(error => console.error('데이터 로딩 오류:', error));
+
+// 탭을 전환하는 함수
+function showTab(tabId) {
+  const tabs = document.querySelectorAll('.tab-content');
+  tabs.forEach(tab => tab.classList.remove('active'));
+
+  const activeTab = document.getElementById(tabId);
+  activeTab.classList.add('active');
+
+  const tabButtons = document.querySelectorAll('.tab-button');
+  tabButtons.forEach(button => button.classList.remove('active'));
+
+  const activeButton = document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`);
+  activeButton.classList.add('active');
+}
