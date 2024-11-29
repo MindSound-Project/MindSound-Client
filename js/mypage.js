@@ -61,3 +61,49 @@ const loadImg = () => {
     }
 }
 loadImg();
+
+// 통계
+const smallbarDiv = document.querySelectorAll('.smallbar');
+const sumSpan = document.querySelectorAll('.sum');
+
+const statistic = async () => {
+    try {
+        const response = await fetch('/json/letterList.json');  // JSON 파일을 가져옴
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const dataList = await response.json();  // JSON 데이터를 파싱
+        
+        let per = [0, 0, 0, 0, 0]
+        dataList.forEach((data) => {
+            if(data.emotion_category === 'happy'){
+                per[0]++;
+            } else if(data.emotion_category === 'good'){
+                per[1]++;
+            } else if(data.emotion_category === 'soso'){
+                per[2]++;
+            } else if(data.emotion_category === 'bad'){
+                per[3]++;
+            } else if(data.emotion_category === 'sad'){
+                per[4]++;
+            }
+        })
+        console.log(per);
+        let max_emotion = Math.max(...per);
+        console.log(max_emotion);
+        let oneper = Math.ceil(100/max_emotion);
+        let i=0;
+        smallbarDiv.forEach((smallbar) => {
+            smallbar.style.width = `${per[i++]*oneper}%`;
+        });
+        i=0;
+        sumSpan.forEach((sum) => {
+            sum.textContent = `${per[i++]}개`;
+        })
+        console.log(oneper);
+    } catch (error) {
+        console.error('Error fetching data:', error);  // 에러 처리
+    }
+
+};
+statistic();

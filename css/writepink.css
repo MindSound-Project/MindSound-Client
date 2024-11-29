@@ -53,6 +53,7 @@ body {
     width: 100%;
     /* 전체 너비를 사용 */
     height: auto;
+    max-height: 600px;
     /* 비율에 맞게 자동으로 높이 조정 */
     object-fit: contain;
     /* 이미지가 비율을 유지하며 잘리지 않도록 설정 */
