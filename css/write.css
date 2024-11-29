@@ -136,7 +136,7 @@ body {
 
 .emailp  {
     margin-top: -150px;
-    margin-right: 280px;
+    width: 100%;
 }
 
 .emailp {
@@ -211,6 +211,10 @@ body {
         /* width: 75%; */
         font-size: 13px;
     }
+
+    .emailp {
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width :605px) {
@@ -223,5 +227,23 @@ body {
     .bodyInput {
         /* width: 70%; */
         font-size: 12px;
+    }
+    
+    .emailp {
+        font-size: 18px;
+    }
+
+    .emailtext {
+        width: 262px;
+        height: 36px;
+        border-radius: 50px;
+        font-size: 14px;
+    }
+    
+    .emailbutton {
+        width: 60px;
+        height: 36px;
+        border-radius: 50px;
+        font-size: 14px;
     }
 }
