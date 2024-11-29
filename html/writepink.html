@@ -93,6 +93,7 @@
                 document.getElementById('letterTitle').textContent = title;
                 document.getElementById('letterBody').textContent = body;
                 document.getElementById('overlay').classList.remove('hidden');
+                document.getElementById('completedLetterImg').src = document.getElementsByClassName('letterImg')[0].src;
             });
             
             document.getElementById('closeButton').addEventListener('click', function() {
@@ -118,6 +119,18 @@
                     this.nextElementSibling.style.display = 'block';
                 });
             });
+
+            // URL에서 img 파라미터 읽기
+        const params = new URLSearchParams(window.location.search);
+        const imgSrc = decodeURIComponent(params.get('img'));
+
+        // 이미지가 전달된 경우 표시
+        if (imgSrc) {
+            const letterImg = document.getElementsByClassName('letterImg')[0];
+            letterImg.src = imgSrc;
+        } else {
+            console.error("img 파라미터가 전달되지 않았습니다.");
+        }
         </script>
     </div>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
