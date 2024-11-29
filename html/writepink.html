@@ -152,60 +152,7 @@
         });
 
 
-        const storageKey = 'letterImages';
-        // 캡처 버튼 클릭 이벤트
-        /*
-        document.getElementById('completeButton').addEventListener('click', async () => {
-            const captureArea = document.getElementById('completedLetter');
-
-            // html2canvas으로 영역 캡처
-            const canvas = await html2canvas(captureArea);
-
-            // 캡처된 이미지를 Base64 형식으로 변환
-            const imageData = canvas.toDataURL('image/png');
-            image_url = imageData;
-
-            // 기존 저장된 이미지 배열 가져오기
-            try {
-                const savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
-                if (JSON.stringify(savedImages).length + imageData.length > 5000000) {
-                    alert("저장 공간이 부족합니다!");
-                } else {
-                    savedImages.push(imageData);
-                    localStorage.setItem(storageKey, JSON.stringify(savedImages));
-                    alert('이미지가 저장되었습니다!');
-                }
-            } catch (e) {
-                console.error("이미지 저장 중 에러:", e);
-            }
-
-
-            // 새 이미지를 배열에 추가
-            savedImages.push(imageData);
-
-            // 배열을 다시 localStorage에 저장
-            localStorage.setItem(storageKey, JSON.stringify(savedImages));
-            // alert('Image saved!');
-
-            // json 추가 
-            const newLetter = {
-                image_url,
-                emotion_category,
-                date,
-                email
-            };
-
-            fetch('/json/letterList.json')
-                .then(response => response.json())
-                .then(data => {
-                    data.push(newLetter);
-                    console.log(data);
-                })
-                .catch(error => {
-                    console.error('Error fetching JSON:', error);
-                });
-        });
-        */
+        // const storageKey = 'letter';
 
         document.getElementById('completeButton').addEventListener('click', async () => {
             const captureArea = document.getElementById('completedLetter');
@@ -216,21 +163,6 @@
             // 캡처된 이미지를 Base64 형식으로 변환
             const imageData = canvas.toDataURL('image/png');
             image_url = imageData;
-        
-            // 기존 저장된 이미지 배열 가져오기
-            let savedImages = [];
-            try {
-                savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
-                if (JSON.stringify(savedImages).length + imageData.length > 5000000) {
-                    alert("저장 공간이 부족합니다!");
-                } else {
-                    savedImages.push(imageData);
-                    localStorage.setItem(storageKey, JSON.stringify(savedImages));
-                    alert('이미지가 저장되었습니다!');
-                }
-            } catch (e) {
-                console.error("이미지 저장 중 에러:", e);
-            }
         
             // 새 데이터를 localStorage에 추가
             const newLetter = {
