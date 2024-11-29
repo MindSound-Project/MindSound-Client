@@ -30,7 +30,7 @@ nextMonthButton.addEventListener("click", () => changeMonth(1));
 
 const chooseDate = (emotion) => {
     const chdateP = document.getElementsByClassName('chdate')[0];
-    let chdateTeset = currentMonth+"월"
+    let chdateTeset = currentMonth + "월"
     async function Date() {
         try {
             const response = await fetch('/json/letterList.json');
@@ -40,11 +40,11 @@ const chooseDate = (emotion) => {
                 arrDate = item.date.split('-');
                 console.log(arrDate);
                 console.log(currentMonth);
-                if(arrDate[1] == currentMonth){
+                if (arrDate[1] == currentMonth) {
                     console.log(item.emotion_category);
                     console.log(emotion);
-                    if(item.emotion_category == emotion) {
-                        chdateTeset += " "+arrDate[2]+"일";
+                    if (item.emotion_category == emotion) {
+                        chdateTeset += " " + arrDate[2] + "일";
                     }
                 }
             }
@@ -94,34 +94,36 @@ const setCalendar = (date) => {
 
     async function loadEmotionList(today) {
         try {
-            const response = await fetch('/json/letterList.json');
-            const data = await response.json();
-
+            const data = JSON.parse(localStorage.getItem('letters')) || [];
+            // console.log(data);
             // 데이터 처리 후 이미지를 반환
             for (let item of data) {
                 if (item.date === today) {
                     let currentMonthDateImg = document.createElement('img');
-                    if (item.email === "") {
+                    // console.log(item.email);
+                    console.log(item.emotion_category);
+                    if (item.emotion_category != "") {
                         if (item.emotion_category === "happy") {
                             currentMonthDateImg.src = '/image/happy.png';
                         } else if (item.emotion_category === "good") {
                             currentMonthDateImg.src = '/image/good.png';
-                        }else if (item.emotion_category === "soso") {
+                        } else if (item.emotion_category === "soso") {
                             currentMonthDateImg.src = '/image/soso.png';
-                        }else if (item.emotion_category === "bad") {
+                        } else if (item.emotion_category === "bad") {
                             currentMonthDateImg.src = '/image/bad.png';
-                        }else if (item.emotion_category === "sad") {
+                        } else if (item.emotion_category === "sad") {
                             currentMonthDateImg.src = '/image/sad.png';
                         }
                     } else {
-                        currentMonthDateImg.src = '/image/other.png';  // default 이미지 추가
+                        currentMonthDateImg.src = '/image/other.png'; // default 이미지 추가
                     }
-                    return currentMonthDateImg;  // 이미지를 반환
+                    return currentMonthDateImg; // 이미지를 반환
                 }
             }
         } catch (err) {
-            console.log(err);  // 오류 처리
+            console.log(err); // 오류 처리
         }
+        
     }
 
     // 다음달 앞날짜 구하자
@@ -146,14 +148,25 @@ const setCalendar = (date) => {
             if (emotionImg) {
                 currentMonthDateSection.appendChild(emotionImg);  // 이미지 노드를 section에 추가
             }
-         
+
             currentMonthDateArticle.appendChild(currentMonthDateSection);
             calendarContainerDiv.appendChild(currentMonthDateArticle);
+        }
+
+        // 다음 달 추가
+        for (let date = 1; date <= 6 - lastDay; date++) {
+            let nextMonthDateArticle = document.createElement("article");
+            nextMonthDateArticle.className = "item other-month";
+            let nextMonthDateDiv = document.createElement('div');
+            nextMonthDateDiv.textContent = date;
+            nextMonthDateArticle.appendChild(nextMonthDateDiv);
+            calendarContainerDiv.appendChild(nextMonthDateArticle);
         }
     }
 
     // generateCalendar 실행
     generateCalendar();
+
 }
 const chImg = (emotion) => {
     const chooseEmotionImg = document.getElementsByClassName('choose-emotion-img')[0];

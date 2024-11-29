@@ -40,15 +40,15 @@ function showTab(tabId) {
 }
 
 const loadImg = () => {
-    const storageKey = 'letterImages';
-    // const setlistImgDiv = document.getElementsByClassName('setlist-img')[0];
+    const storageKey = 'letters';
     const savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
     const imageList = document.getElementsByClassName('setlist-img')[0];
 
     // 기존 이미지를 모두 제거
     imageList.innerHTML = '';
     // 저장된 이미지를 각각 <img> 태그로 표시
-    savedImages.reverse().forEach((image, index) => {
+    savedImages.reverse().forEach((letter, index) => {
+        let image = letter.image_url;
         const img = document.createElement('img');
         img.src = image;
         img.alt = `Captured Image ${index + 1}`;
