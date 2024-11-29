@@ -120,6 +120,62 @@ body {
 
 }
 
+
+.email {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000000;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    background: rgba(248, 246, 246, 0.50);
+}
+
+.emailp  {
+    margin-top: -150px;
+    margin-right: 280px;
+}
+
+.emailp {
+    color: #000;
+    font-family: 'HakgyoansimChilpanjijgae';
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+
+.emailtext:focus {
+    outline: none;
+}
+
+.emailtext {
+    width: 302px;
+    font-family: 'HakgyoansimChilpanjijgae';
+    padding-left: 15px;
+    height: 40px;
+    border-radius: 50px;
+    border: 0.5px solid #C2C2C2;
+    background: #FFF;
+    font-size: 16px;
+}
+
+.emailbutton {
+    font-family: 'HakgyoansimChilpanjijgae';
+    width: 67px;
+    height: 40px;
+    border-radius: 50px;
+    background: #B8CCFF;
+    border: #B8CCFF;
+    font-size: 16px;
+}
+
+.show {
+    display: flex;
+}
+
 @media screen and (max-width: 1160px) {
     .titleInput {
         font-size: 28px;
