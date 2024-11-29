@@ -43,6 +43,15 @@
                 </div>
             </div>
         </div>
+        <div class="email">
+            <p class="emailp">보낼 이메일</p>
+            <div class="emailinput">
+                <input type="text" class="emailtext" placeholder="이메일을 입력해 주세요.">
+                <a href="/html/calendar.html">
+                    <input type="button" class="emailbutton" value="보내기">
+                </a>
+            </div>
+        </div>
     </main>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script>
@@ -75,13 +84,15 @@
                 console.error("An error occurred:", error);
                 alert('An error occurred. Check the console for details.');
             }
+            const emailDiv = document.querySelector('.email');
+            emailDiv.classList.add('show');
         });
 
-        document.getElementsByClassName('go')[0].addEventListener('click', function () {
-            setTimeout(function () {
+        /*document.getElementsByClassName('go')[0].addEventListener('click', function () {
+            setTimeout(function () {    
                 window.location.href = '/html/send.html';
             }, 500);
-        });
+        });*/
 
         // URL에서 img 파라미터 읽기
         const params = new URLSearchParams(window.location.search);
