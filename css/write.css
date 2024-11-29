@@ -73,8 +73,13 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20 px;
+    padding: 20px;
+}
 
+#col {
+    width: 40%;
+    /* max-width: 400px; */
+    margin-left: calc(60% - 30%);
 }
 
 .titleInput {
@@ -94,6 +99,12 @@ body {
     margin-left: -156px;
 }
 
+#colTitle {
+    margin-top: 18px;
+    height: 5%;
+    margin-left: 0px;
+}
+
 .bodyInput {
     font-family: 'Pretendard';
     width: 90%;
@@ -107,6 +118,10 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     outline: none;
     resize: none;
+}
+
+#colBody {
+    height: 80%;
 }
 
 .bodyInput::-webkit-scrollbar {
@@ -186,6 +201,11 @@ body {
         /* width: 85%; */
         font-size: 15px;
     }
+
+    /* #col {
+        width: 50%;
+        margin-left: calc(50% - 25%);
+    } */
 }
 
 @media screen and (max-width: 960px) {
@@ -198,6 +218,11 @@ body {
     .bodyInput {
         /* width: 80%; */
         font-size: 14px;
+    }
+
+    #col {
+        width: 50%;
+        margin-left: calc(50% - 25%);
     }
 }
 
@@ -214,6 +239,11 @@ body {
 
     .emailp {
         font-size: 20px;
+    }
+
+    #col {
+        width: 60%;
+        margin-left: calc(40% - 20%);
     }
 }
 
@@ -246,4 +276,16 @@ body {
         border-radius: 50px;
         font-size: 14px;
     }
+    
+    #col {
+        width: 80%;
+        margin-left: calc(20% - 10%);
+    }
 }
+
+@media screen and (max-width :490px){
+    #col {
+        width: 90%;
+        margin-left: calc(10% - 5%);
+    }
+} 

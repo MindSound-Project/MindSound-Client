@@ -41,6 +41,10 @@
                     <input type="text" class="titleInput">
                     <textarea placeholder="내용을 입력하세요" class="bodyInput"></textarea>
                 </div>
+                <div class="letterContent" id="col">
+                    <input type="text" class="titleInput" id="colTitle">
+                    <textarea placeholder="내용을 입력하세요" class="bodyInput" id="colBody"></textarea>
+                </div>
             </div>
         </div>
         <div class="email">
@@ -54,6 +58,7 @@
                 </div>
             </div>
         </div>
+        
     </main>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script>
@@ -65,6 +70,10 @@
         document.querySelector('.emailtext').addEventListener('input', function() {
             email = this.value;  
         });
+
+        const emailDiv = document.querySelector('.email');
+        const letterContentDiv = document.querySelector('.letterContent');
+        const letterContentColDiv = document.querySelector('#col');
 
         document.getElementsByClassName('go')[0].addEventListener('click', async () => {
             try {
@@ -97,7 +106,6 @@
                 console.error("An error occurred:", error);
                 alert('An error occurred. Check the console for details.');
             }
-            const emailDiv = document.querySelector('.email');
             emailDiv.classList.add('show');
         });
 
@@ -139,6 +147,7 @@
         // URL에서 img 파라미터 읽기
         const params = new URLSearchParams(window.location.search);
         const imgSrc = decodeURIComponent(params.get('img'));
+        const imgVersion = decodeURIComponent(params.get('version'));
 
         // 이미지가 전달된 경우 표시
         if (imgSrc) {
@@ -147,6 +156,14 @@
         } else {
             console.error("img 파라미터가 전달되지 않았습니다.");
         }
+
+        if(imgVersion === '가로'){
+            letterContentColDiv.style.display = 'none';
+        }
+        else if(imgVersion === '세로'){
+            letterContentDiv.style.display = 'none';
+        }
+        
 
     </script>
 </body>
