@@ -81,7 +81,7 @@
         const letterContentDiv = document.querySelector('.letterContent');
         const letterContentColDiv = document.querySelector('#col');
 
-        document.getElementsByClassName('go')[0].addEventListener('click', async () => {
+        /*document.getElementsByClassName('go')[0].addEventListener('click', async () => {
             try {
                 console.log("Button clicked");
                 const captureArea = document.getElementsByClassName('letterContainer')[0];
@@ -102,6 +102,91 @@
             } catch (error) {
                 console.error("An error occurred:", error);
                 // alert('An error occurred. Check the console for details.');
+            }
+            emailDiv.classList.add('show');
+        });*/
+        /*document.getElementsByClassName('go')[0].addEventListener('click', async () => {
+            try {
+                console.log("Button clicked");
+    
+                const captureArea = document.getElementsByClassName('letterContainer')[0];
+                if (!captureArea) {
+                    console.error("Capture area not found!");
+                    return;
+                }
+    
+                // 기존 textarea 내용 가져오기
+                const bodyInput = document.querySelector('.bodyInput');
+    
+                // textarea의 내용을 div로 복사하여 줄 바꿈을 반영
+                const bodyDiv = document.createElement('div');
+                bodyDiv.className = 'bodyDiv'; // 새로운 div 요소 생성
+                bodyDiv.style.whiteSpace = 'pre-wrap'; // 줄 바꿈을 반영하는 스타일 추가
+                bodyDiv.style.wordWrap = 'break-word'; // 긴 단어도 줄 바꿈되도록 추가
+                bodyDiv.innerText = bodyInput.value; // textarea 내용을 div로 복사
+    
+                // div에 내용 추가
+                const letterContentDiv = document.querySelector('.letterContent');
+                letterContentDiv.appendChild(bodyDiv);
+    
+                // 캡처 시작
+                console.log("Starting html2canvas...");
+                const canvas = await html2canvas(captureArea);
+    
+                console.log("Canvas generated successfully.");
+                const imageData = canvas.toDataURL('image/png');
+                image_url = imageData;
+    
+                console.log("Image saved to localStorage.");
+            } catch (error) {
+                console.error("An error occurred:", error);
+            }
+            emailDiv.classList.add('show');
+        });*/
+        document.getElementsByClassName('go')[0].addEventListener('click', async () => {
+            try {
+                console.log("Button clicked");
+    
+                const captureArea = document.getElementsByClassName('letterContainer')[0];
+                if (!captureArea) {
+                    console.error("Capture area not found!");
+                    return;
+                }
+    
+                // 1. textarea를 숨깁니다
+                const bodyInput = document.querySelector('.bodyInput');
+                bodyInput.style.display = 'none'; // textarea 숨기기
+    
+                // 2. textarea의 내용을 div로 복사하여 줄 바꿈을 반영
+                const bodyDiv = document.createElement('div');
+                bodyDiv.className = 'bodyDiv'; // 새로운 div 생성
+                bodyDiv.style.whiteSpace = 'pre-wrap'; // 줄 바꿈을 반영하는 스타일 추가
+                bodyDiv.style.wordWrap = 'break-word'; // 긴 단어도 줄 바꿈되도록 추가
+                bodyDiv.style.fontFamily = getComputedStyle(bodyInput).fontFamily; // 기존 스타일 복사
+                bodyDiv.style.fontSize = getComputedStyle(bodyInput).fontSize; // 기존 스타일 복사
+                bodyDiv.style.lineHeight = getComputedStyle(bodyInput).lineHeight; // 기존 스타일 복사
+                bodyDiv.classList.add('bodyInput');
+                bodyDiv.innerText = bodyInput.value; // textarea의 내용을 div로 복사
+    
+                // 3. div를 letterContent에 추가하여 캡처할 수 있도록 설정
+                const letterContentDiv = document.querySelector('.letterContent');
+                letterContentDiv.appendChild(bodyDiv);
+    
+                // 4. 캡처 시작
+                console.log("Starting html2canvas...");
+                const canvas = await html2canvas(captureArea, {
+                    useCORS: true,  // CORS 오류 방지
+                    logging: true,   // 디버깅 용도: 캡처 진행상황을 로그로 출력
+                    backgroundColor: null // 투명 배경을 유지하도록 설정
+                });
+    
+                console.log("Canvas generated successfully.");
+                const imageData = canvas.toDataURL('image/png');
+                image_url = imageData;
+    
+                console.log("Image saved to localStorage.");
+            } catch (error) {
+                console.error("An error occurred:", error);
             }
             emailDiv.classList.add('show');
         });
