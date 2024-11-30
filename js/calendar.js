@@ -43,13 +43,14 @@ const chooseDate = (emotion) => {
                 console.log(currentMonth);
                 if (arrDate[1] == currentMonth) {
                     if (item.emotion_category == emotion) {
-                        chdateTeset += " " + arrDate[2] + "일";
+                        // chdateTeset += " " + arrDate[2] + "일";
+                        chdateTeset += ` <span>${arrDate[2]}일</span>`;
                         cnt++;
                     }
                 }
             }
             chdateTeset += "에 제 감정을 선택하셨습니다.";
-            chdateP.textContent = chdateTeset;
+            chdateP.innerHTML = chdateTeset;
         } catch (err) {
             console.log(err);  // 오류 처리
         }
