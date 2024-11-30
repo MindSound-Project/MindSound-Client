@@ -131,6 +131,11 @@
                 });
             });
 
+            function changeId() {
+                const element = document.getElementById('letterContent');
+                element.id = 'letterContentCol';  // id 변경
+            }
+
             // URL에서 img 파라미터 읽기
             const params = new URLSearchParams(window.location.search);
             const imgSrc = decodeURIComponent(params.get('img'));
@@ -152,6 +157,7 @@
             }
             else if(imgVersion === '세로'){
                 letterContentDiv.style.display = 'none';
+                changeId();
             }
         </script>
     </div>
