@@ -98,29 +98,13 @@
                 const imageData = canvas.toDataURL('image/png');
                 image_url = imageData;
 
-                // console.log("Saving to localStorage...");
-                // const savedImages = JSON.parse(localStorage.getItem(storageKey)) || [];
-                // savedImages.push(imageData);
-                // localStorage.setItem(storageKey, JSON.stringify(savedImages));
-
                 console.log("Image saved to localStorage.");
-                // alert('Image saved!');
-
-                
-
             } catch (error) {
                 console.error("An error occurred:", error);
                 alert('An error occurred. Check the console for details.');
             }
             emailDiv.classList.add('show');
         });
-
-        /*document.getElementsByClassName('go')[0].addEventListener('click', function () {
-            setTimeout(function () {    
-                window.location.href = '/html/send.html';
-            }, 500);
-        });*/
-
         document.getElementsByClassName('emailbutton')[0].addEventListener('click', function() {
             let savedImages = [];
             try {
