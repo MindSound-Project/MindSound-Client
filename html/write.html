@@ -71,8 +71,7 @@
         const storageKey = 'letter';
         let image_url = "";
         let emotion_category = "";
-        // let date = new Date().toISOString().split('T')[0];
-        let date = '2024-11-03';
+        let date = new Date().toISOString().split('T')[0];
         let email = "";
         document.querySelector('.emailtext').addEventListener('input', function() {
             email = this.value;  
@@ -85,7 +84,7 @@
         document.getElementsByClassName('go')[0].addEventListener('click', async () => {
             try {
                 console.log("Button clicked");
-                const captureArea = document.getElementsByClassName('write')[0];
+                const captureArea = document.getElementsByClassName('letterContainer')[0];
                 if (!captureArea) {
                     console.error("Capture area not found!");
                     alert("Error: Capture area not found.");
