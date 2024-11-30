@@ -129,8 +129,8 @@ body {
 #letterContentCol {
     position: absolute;
     top: 15%;
-    left: calc(60% - 30%);
-    width: 40%;
+    left: calc(50% - 127px);
+    width: 250px;
     height: 78%;
     overflow-y: auto;
     font-family: 'Pretendard';
@@ -251,10 +251,9 @@ body {
     cursor: pointer;
     font-family: 'HakgyoansimChilpanjijgae';
     font-size: 18px;
-    position: absolute;
-    /* bottom: -43px; */
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
+    left: calc(50% - 55.5px);
+    bottom: 50px;
     transition: all 0.3s ease;
 }
 

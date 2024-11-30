@@ -99,10 +99,18 @@
         <script>
             document.getElementById('completeButton').addEventListener('click', function (e) {
                 e.preventDefault();
-                var title = document.querySelector('.titleInput').value;
-                var body = document.querySelector('.bodyInput').value;
-                document.getElementById('letterTitle').textContent = title;
-                document.getElementById('letterBody').textContent = body;
+                var titles = document.querySelectorAll('.titleInput');
+                titles.forEach((title) => {
+                    if(title.value != ""){
+                        document.getElementById('letterTitle').textContent = title.value;
+                    }
+                })
+                var bodys = document.querySelectorAll('.bodyInput');
+                bodys.forEach((body) => {
+                    if(body.value != ""){
+                        document.getElementById('letterBody').textContent = body.value;
+                    }
+                })
                 document.getElementById('overlay').classList.remove('hidden');
                 document.getElementById('completedLetterImg').src = document.getElementsByClassName('letterImg')[0].src;
             });
@@ -157,6 +165,7 @@
             }
             else if(imgVersion === '세로'){
                 letterContentDiv.style.display = 'none';
+                document.getElementById('completedLetter').style.width = 'auto';
                 changeId();
             }
         </script>
