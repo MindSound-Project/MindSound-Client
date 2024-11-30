@@ -17,7 +17,7 @@
   
 
 ## 🎬 Demo
-👉🏻[Demo Video](hhttps://drive.google.com/drive/folders/194RQMiy3GLGGx1YNZ3HBKoQGGza1Wdyf?hl=ko)
+👉🏻[Demo Video](https://drive.google.com/drive/folders/194RQMiy3GLGGx1YNZ3HBKoQGGza1Wdyf?hl=ko)
 ## Contributors 💁🏻
  이름|역할|
 :---|:---:|
