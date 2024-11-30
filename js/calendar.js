@@ -92,38 +92,56 @@ const setCalendar = (date) => {
     }
 
 
-    async function loadEmotionList(today) {
+    
+    async function loadEmotionListCount(today) {
         try {
             const data = JSON.parse(localStorage.getItem('letters')) || [];
-            // console.log(data);
-            // 데이터 처리 후 이미지를 반환
+            let count=0;
+            for (let item of data) {
+                if (item.date === today){
+                    count++;
+                }
+            }
+            return count;
+        } catch (err) {
+            console.log(err); // 오류 처리
+        }
+    }
+
+
+    async function loadEmotionList(today, cnt) {
+        try {
+            const data = JSON.parse(localStorage.getItem('letters')) || [];
+            let num = 1;
             for (let item of data) {
                 if (item.date === today) {
-                    let currentMonthDateImg = document.createElement('img');
-                    // console.log(item.email);
-                    console.log(item.emotion_category);
-                    if (item.emotion_category != "") {
-                        if (item.emotion_category === "happy") {
-                            currentMonthDateImg.src = '/image/happy.png';
-                        } else if (item.emotion_category === "good") {
-                            currentMonthDateImg.src = '/image/good.png';
-                        } else if (item.emotion_category === "soso") {
-                            currentMonthDateImg.src = '/image/soso.png';
-                        } else if (item.emotion_category === "bad") {
-                            currentMonthDateImg.src = '/image/bad.png';
-                        } else if (item.emotion_category === "sad") {
-                            currentMonthDateImg.src = '/image/sad.png';
+                    if(num === cnt){
+                        let currentMonthDateImg = document.createElement('img');
+                        // console.log(item.email);
+                        console.log(item.emotion_category);
+                        if (item.emotion_category != "") {
+                            if (item.emotion_category === "happy") {
+                                currentMonthDateImg.src = '/image/happy.png';
+                            } else if (item.emotion_category === "good") {
+                                currentMonthDateImg.src = '/image/good.png';
+                            } else if (item.emotion_category === "soso") {
+                                currentMonthDateImg.src = '/image/soso.png';
+                            } else if (item.emotion_category === "bad") {
+                                currentMonthDateImg.src = '/image/bad.png';
+                            } else if (item.emotion_category === "sad") {
+                                currentMonthDateImg.src = '/image/sad.png';
+                            }
+                        } else {
+                            currentMonthDateImg.src = '/image/other.png'; // default 이미지 추가
                         }
-                    } else {
-                        currentMonthDateImg.src = '/image/other.png'; // default 이미지 추가
+                        return currentMonthDateImg; // 이미지를 반환
                     }
-                    return currentMonthDateImg; // 이미지를 반환
+                    num++;
                 }
             }
         } catch (err) {
             console.log(err); // 오류 처리
         }
-        
     }
 
     // 다음달 앞날짜 구하자
@@ -144,9 +162,12 @@ const setCalendar = (date) => {
             let today = new Date(year, month, date + 1).toISOString().split('T')[0];
 
             // 이미지를 비동기적으로 로드하고 나서 추가
-            const emotionImg = await loadEmotionList(today);  // await로 loadEmotionList의 실행 완료 후 이미지 반환
-            if (emotionImg) {
-                currentMonthDateSection.appendChild(emotionImg);  // 이미지 노드를 section에 추가
+            const emotionCount = await loadEmotionListCount(today);
+            for(let i=1; i<=emotionCount; i++){
+                const emotionImg = await loadEmotionList(today, i);  // await로 loadEmotionList의 실행 완료 후 이미지 반환
+                if (emotionImg) {
+                    currentMonthDateSection.appendChild(emotionImg);  // 이미지 노드를 section에 추가
+                }
             }
 
             currentMonthDateArticle.appendChild(currentMonthDateSection);
