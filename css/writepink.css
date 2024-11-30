@@ -229,7 +229,7 @@ body {
     font-family: 'HakgyoansimChilpanjijgae';
     font-size: 18px;
     position: absolute;
-    bottom: -43px;
+    /* bottom: -43px; */
     left: 50%;
     transform: translateX(-50%);
     transition: all 0.3s ease;

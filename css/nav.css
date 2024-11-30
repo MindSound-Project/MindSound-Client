@@ -3,7 +3,7 @@
     src: url('/font/Hakgyoansim Chilpanjiugae TTF L.ttf') format('truetype');
 }
 
-.nav{
+.nav {
     position: fixed;
     z-index: 100;
     top: 0;
@@ -14,7 +14,8 @@
     justify-content: space-between;
     padding: 0 27px;
 }
-.navDiv{
+
+.navDiv {
     height: 100%;
     display: flex;
     align-items: center;
@@ -22,34 +23,121 @@
     text-decoration: none;
     column-gap: 30px;
 }
-.navItem{
+
+.navItem {
     font-size: 20px;
     color: black;
     font-family: 'HakgyoansimChilpanjijgae';
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
     width: 30px;
     height: 100%;
 }
+
 .here {
     display: inline-block;
     position: relative;
 }
+
 .here::after {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -2px; /* 글자와 밑줄 사이 간격 조정 */
-    border-bottom: 0.1px solid black; /* 첫 번째 밑줄 */
-    box-shadow: 0 2px 0 0 black; /* 두 번째 밑줄 */
+    bottom: -2px;
+    /* 글자와 밑줄 사이 간격 조정 */
+    border-bottom: 0.1px solid black;
+    /* 첫 번째 밑줄 */
+    box-shadow: 0 2px 0 0 black;
+    /* 두 번째 밑줄 */
     opacity: 0.5;
 }
-.pen{
+
+.pen {
     width: 10px;
     position: absolute;
     z-index: 101;
     bottom: 10px;
+}
+
+.hamburger {
+    position: relative;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+    display: none;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+    top: -8px;
+    /* 본체 위로 이동 */
+}
+
+.hamburger::after {
+    top: 8px;
+    /* 본체 아래로 이동 */
+}
+
+/* 애니메이션: X 모양 */
+.hamburger.active {
+    background-color: transparent;
+    /* 가운데 줄 숨김 */
+}
+
+.hamburger.active::before {
+    transform: rotate(45deg);
+    top: 0;
+    /* 중앙으로 이동 */
+}
+
+.hamburger.active::after {
+    transform: rotate(-45deg);
+    top: 0;
+    /* 중앙으로 이동 */
+}
+
+@media screen and (max-width: 450px) {
+    .navDiv {
+        display: none;    
+    }
+    .hamburger {
+        display: flex;
+    }
+    .show {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 30px;
+        width:160px;
+        height: calc(100vh - 46px);
+        background-color: white;
+        position: fixed;
+        top: 46px;
+        right: 0;
+        z-index: 100000;
+    }
+    .pen {
+        margin: 0;
+        right: 33px;
+        top: 34px;
+    }
 }

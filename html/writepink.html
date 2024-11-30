@@ -13,6 +13,11 @@
         .nav {
             background: #FFC5BA;
         }
+        @media screen and (max-width: 450px){
+            .pen {
+                top: 34px;
+            }
+        }
     </style>
 </head>
 
@@ -25,6 +30,7 @@
                         <img src="/image/마음소리함.png" alt="">
                     </a>
                 </div>
+                <div class="hamburger" id="hamburger"></div>
                 <div class="navDiv">
                     <img src="/image/pen1.png" alt="" class="pen" style="margin-left: 61px;">
                     <a href="/html/letter.html" class="navItem here">편지 쓰기</a>
@@ -194,6 +200,7 @@
         
 
     </script>
+    <script src="/js/nav.js"></script>
 </body>
 
 </html>

@@ -237,7 +237,6 @@ body{
         bottom: 310px;
         font-size: 18px;
         right: 50px;
-        z-index: 1000;
     }
     .left{
         display: none;
