@@ -70,7 +70,7 @@ body::-webkit-scrollbar {
     margin-left: 141px;
     margin-top: 148px;
     color: #FFC5BA;
-    z-index: 100;
+    z-index: 10;
 }
 
 .imginf {

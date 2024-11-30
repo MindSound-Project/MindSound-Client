@@ -10,87 +10,108 @@
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/mypage.css">
 </head>
-<header class="navHeader">
-    <nav class="nav">
-        <div class="logo">
-            <a href="/index.html">
-                <img src="/image/마음소리함.png" alt="">
-            </a>
-        </div>
-        <div class="navDiv">
-            <img src="/image/pen1.png" alt="" class="pen" style="margin-left: 250px;">
-            <a href="/html/letter.html" class="navItem">편지 쓰기</a>
-            <a href="/html/calendar.html" class="navItem">기록 보기</a>
-            <a href="/html/mypage.html" class="navItem here">마이페이지</a>
-        </div>
-    </nav>
-</header>
+
+<body>
+    <style>
+        @media screen and (max-width: 450px){
+            .pen {
+                top: 138px;
+            }
+        }
+    </style>
+    <header class="navHeader">
+        <nav class="nav">
+            <div class="logo">
+                <a href="/index.html">
+                    <img src="/image/마음소리함.png" alt="">
+                </a>
+            </div>
+            <div class="hamburger" id="hamburger"></div>
+            <div class="navDiv">
+                <img src="/image/pen1.png" alt="" class="pen" style="margin-left: 250px;">
+                <a href="/html/letter.html" class="navItem">편지 쓰기</a>
+                <a href="/html/calendar.html" class="navItem">기록 보기</a>
+                <a href="/html/mypage.html" class="navItem here">마이페이지</a>
+            </div>
+        </nav>
+    </header>
 
 
-<main id="main">
-    <div class="imginf">
-        <div class="image-button">
-            <input type="file" id="fileInput" style="display: none;">
-            <img src="/image/img.png" alt="" class="img">
-            <img src="/image/plus.png" alt="" class="plus">
+    <main id="main">
+        <div class="imginf">
+            <div class="image-button">
+                <input type="file" id="fileInput" style="display: none;">
+                <img src="/image/img.png" alt="" class="img">
+                <img src="/image/plus.png" alt="" class="plus">
+            </div>
+            <div class="image-preview"></div>
+            <div class="info-section">
+                <div class="tabs">
+                    <button class="tab-button active" onclick="showTab('login-info')">로그인 정보</button>
+                    <button class="tab-button" onclick="showTab('statistics')">통계 기록</button>
+                </div>
+                <div id="login-info" class="tab-content active">
+                    <p id="user-id">아이디 : </p>
+                    <p id="user-password">비밀번호 : </p>
+                </div>
+                <div id="statistics" class="tab-content">
+                    <div class="emojibar">
+                        <img src="/image/happy.png" alt="" class="happy emojiimg">
+                        <div class="bigbar">
+                            <div class="smallbar happysmallbar"></div>
+                        </div>
+                        <span class="sum">0</span>
+                    </div>
+                    <div class="emojibar">
+                        <img src="/image/good.png" alt="" class="good emojiimg">
+                        <div class="bigbar goodbar">
+                            <div class="smallbar goodsmallbar"></div>
+                        </div>
+                        <span class="sum">0</span>
+                    </div>
+                    <div class="emojibar">
+                        <img src="/image/soso.png" alt="" class="soso emojiimg">
+                        <div class="bigbar">
+                            <div class="smallbar sososmallbar"></div>
+                        </div>
+                        <span class="sum">0</span>
+                    </div>
+                    <div class="emojibar">
+                        <img src="/image/bad.png" alt="" class="bad emojiimg">
+                        <div class="bigbar">
+                            <div class="smallbar badsmallbar"></div>
+                        </div>
+                        <span class="sum">0</span>
+                    </div>
+                    <div class="emojibar">
+                        <img src="/image/sad.png" alt="" class="sad emojiimg">
+                        <div class="bigbar">
+                            <div class="smallbar sadsmallbar"></div>
+                        </div>
+                        <span class="sum">0</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="image-preview"></div>
-        <div class="info-section">
-            <div class="tabs">
-                <button class="tab-button active" onclick="showTab('login-info')">로그인 정보</button>
-                <button class="tab-button" onclick="showTab('statistics')">통계 기록</button>
+
+        <div class="sentlist">
+            <p>보낸 편지</p>
+            <div class="setlist-img">
+                <img src="/image/울적한날의개굴편지지.png" alt="" class="sentlistimg sentlistimg1">
+                <img src="/image/울적한날의개굴편지지.png" alt="" class="sentlistimg sentlistimg2">
+                <img src="/image/울적한날의개굴편지지(세로).png" alt="" class="sentlistimg sentlistimg3">
+                <img src="/image/울적한날의개굴편지지(세로).png" alt="" class="sentlistimg sentlistimg4">
+                <img src="/image/울적한날의개굴편지지(세로).png" alt="" class="sentlistimg sentlistimg4">
+                <img src="/image/울적한날의개굴편지지(세로).png" alt="" class="sentlistimg sentlistimg4">
             </div>
-            <div id="login-info" class="tab-content active">
-                <p id="user-id">아이디 : </p>
-                <p id="user-password">비밀번호 : </p>
-            </div>
-            <div id="statistics" class="tab-content">
-                <div class="emojibar">
-                    <img src="/image/happy.png" alt="" class="happy emojiimg">
-                    <div class="bigbar"><div class="smallbar happysmallbar"></div></div>
-                    <span class="sum">0</span>
-                </div>  
-                <div class="emojibar">
-                    <img src="/image/good.png" alt="" class="good emojiimg">
-                    <div class="bigbar goodbar"><div class="smallbar goodsmallbar"></div></div>
-                    <span class="sum">0</span>
-                </div>  
-                <div class="emojibar">
-                    <img src="/image/soso.png" alt="" class="soso emojiimg">
-                    <div class="bigbar"><div class="smallbar sososmallbar"></div></div>
-                    <span class="sum">0</span>
-                </div>  
-                <div class="emojibar">
-                    <img src="/image/bad.png" alt="" class="bad emojiimg">
-                    <div class="bigbar"><div class="smallbar badsmallbar"></div></div>
-                    <span class="sum">0</span>
-                </div>  
-                <div class="emojibar">
-                    <img src="/image/sad.png" alt="" class="sad emojiimg">
-                    <div class="bigbar"><div class="smallbar sadsmallbar"></div></div>
-                    <span class="sum">0</span>
-                </div>  
-            </div>
-        </div>        
-    </div>
-    
-    <div class="sentlist">
-        <p>보낸 편지</p>
-        <div class="setlist-img">
-            <img src="/image/울적한날의개굴편지지.png" alt="" class="sentlistimg sentlistimg1">
-            <img src="/image/울적한날의개굴편지지.png" alt="" class="sentlistimg sentlistimg2">
-            <img src="/image/울적한날의개굴편지지(세로).png" alt="" class="sentlistimg sentlistimg3">
-            <img src="/image/울적한날의개굴편지지(세로).png" alt="" class="sentlistimg sentlistimg4">
-            <img src="/image/울적한날의개굴편지지(세로).png" alt="" class="sentlistimg sentlistimg4">
-            <img src="/image/울적한날의개굴편지지(세로).png" alt="" class="sentlistimg sentlistimg4">
         </div>
-    </div>
-</main>
-<!-- 용량 초과시 로컬스토리지 초기화 -->
-<!-- <script>
-    localStorage.clear();
-</script> -->
-<script src="/js/mypage.js"></script>
+    </main>
+    <!-- 용량 초과시 로컬스토리지 초기화 -->
+    <!-- <script>
+        localStorage.clear();
+    </script> -->
+    <script src="/js/mypage.js"></script>
+    <script src="/js/nav.js"></script>
 </body>
 
 </html>

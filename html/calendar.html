@@ -9,11 +9,19 @@
     <link rel="stylesheet" href="/css/calendar.css">
 </head>
 <body>
+    <style>
+        @media screen and (max-width: 450px){
+            .pen {
+                top: 86px;
+            }
+        }
+    </style>
     <header class="navHeader">
         <nav class="nav">
             <div class="logo">
                 <img src="/image/마음소리함.png" alt="">
             </div>
+            <div class="hamburger" id="hamburger"></div>
             <div class="navDiv">
                 <img src="/image/pen1.png" alt="" class="pen" style="margin-left: 146px;">
                 <a href="/html/letter.html" class="navItem">편지 쓰기</a>
@@ -188,5 +196,6 @@
     </div>
 
     <script src="/js/calendar.js"></script>
+    <script src="/js/nav.js"></script>
 </body>
 </html>
