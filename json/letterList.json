@@ -1,38 +1,77 @@
 [
   {
-    "image_url": "image_url_4",
-    "emotion_category": "bad",
-    "date": "2024-11-01",
-    "email": ""
+    "image_url": "/image/나_1년후의나에게.png",
+    "emotion_category": "happy",
+    "date": "2024-12-01"
   },
   {
-    "image_url": "image_url_5",
-    "emotion_category": "",
-    "date": "2024-11-17",
-    "email": "example5@example.com"
-  },
-  {
-    "image_url": "image_url_4",
-    "emotion_category": "bad",
-    "date": "2024-11-18",
-    "email": ""
-  },
-  {
-    "image_url": "image_url_3",
+    "image_url": "/image/나_감사일기.png",
     "emotion_category": "soso",
-    "date": "2024-11-19",
-    "email": ""
+    "date": "2024-11-15"
   },
   {
-    "image_url": "image_url_2",
+    "image_url": "/image/나_오늘하루에대하여.png",
     "emotion_category": "good",
-    "date": "2024-11-20",
-    "email": ""
+    "date": "2024-11-04"
   },
   {
-    "image_url": "image_url_1",
+    "image_url": "/image/나_짝사랑에대하여.png",
+    "emotion_category": "happy",
+    "date": "2024-11-22"
+  },
+  {
+    "image_url": "/image/나_프로젝트회고록.png",
+    "emotion_category": "bad",
+    "date": "2024-11-28"
+  },
+  {
+    "image_url": "/image/나_자축편지.png",
+    "emotion_category": "happy",
+    "date": "2024-11-11"
+  },
+  {
+    "image_url": "/image/나_가을에대하여",
+    "emotion_category": "sad",
+    "date": "2024-11-18"
+  },
+  {
+    "image_url": "/image/너_소리에게",
     "emotion_category": "",
-    "date": "2024-11-21",
-    "email": "example1@example.com"
+    "date": "2024-12-02"
+  },
+  {
+    "image_url": "/image/너_사랑하는언니의생일을축하",
+    "emotion_category": "",
+    "date": "2024-11-07"
+  },
+  {
+    "image_url": "/image/너_짝남에게",
+    "emotion_category": "",
+    "date": "2024-11-22"
+  },
+  {
+    "image_url": "/image/나_할로윈을맞이하며",
+    "emotion_category": "",
+    "date": "2024-11-01"
+  },
+  {
+    "image_url": "/image/너_감사전하기",
+    "emotion_category": "",
+    "date": "2024-11-15"
+  },
+  {
+    "image_url": "/image/너_사과편지",
+    "emotion_category": "",
+    "date": "2024-11-27"
+  },
+  {
+    "image_url": "/image/너_행운가득",
+    "emotion_category": "",
+    "date": "2024-11-17"
+  },
+  {
+    "image_url": "/image/너_12월",
+    "emotion_category": "",
+    "date": "2024-11-30"
   }
 ]
