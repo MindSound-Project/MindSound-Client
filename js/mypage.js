@@ -68,11 +68,9 @@ const sumSpan = document.querySelectorAll('.sum');
 
 const statistic = async () => {
     try {
-        const response = await fetch('/json/letterList.json');  // JSON 파일을 가져옴
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const dataList = await response.json();  // JSON 데이터를 파싱
+        const storageKey = 'letters';
+        const dataList = JSON.parse(localStorage.getItem(storageKey)) || [];
+        // const dataList = await savedImages.json();  // JSON 데이터를 파싱
         
         let per = [0, 0, 0, 0, 0]
         dataList.forEach((data) => {
@@ -91,7 +89,7 @@ const statistic = async () => {
         console.log(per);
         let max_emotion = Math.max(...per);
         console.log(max_emotion);
-        let oneper = Math.ceil(100/max_emotion);
+        let oneper = max_emotion > 0 ? Math.ceil(100 / max_emotion) : 0;
         let i=0;
         smallbarDiv.forEach((smallbar) => {
             smallbar.style.width = `${per[i++]*oneper}%`;
