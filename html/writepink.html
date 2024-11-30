@@ -177,8 +177,7 @@
         // json 추가
         let image_url = "";
         let emotion_category = "";
-        let date = "2024-11-30"
-        // new Date().toISOString().split('T')[0];
+        let date  = new Date().toISOString().split('T')[0];
         let email = "";
         const chemotion = document.querySelectorAll('.emotion-img');
         chemotion.forEach(emotion => {
@@ -211,7 +210,7 @@
             let letters = JSON.parse(localStorage.getItem('letters')) || []; // 기존 JSON 데이터를 localStorage에서 가져오기
             letters.push(newLetter); // 새 데이터 추가
             localStorage.setItem('letters', JSON.stringify(letters)); // 다시 저장
-            alert('새 편지가 추가되었습니다!');
+            console.log('새 편지가 추가되었습니다!');
         });
         
 
