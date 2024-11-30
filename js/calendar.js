@@ -30,21 +30,21 @@ nextMonthButton.addEventListener("click", () => changeMonth(1));
 
 const chooseDate = (emotion) => {
     const chdateP = document.getElementsByClassName('chdate')[0];
+    let cnt = 0;
     let chdateTeset = currentMonth + "월"
     async function Date() {
         try {
-            const response = await fetch('/json/letterList.json');
-            const data = await response.json();
+            const storageKey = 'letters';
+            const data = JSON.parse(localStorage.getItem(storageKey)) || [];
 
             for (let item of data) {
                 arrDate = item.date.split('-');
                 console.log(arrDate);
                 console.log(currentMonth);
                 if (arrDate[1] == currentMonth) {
-                    console.log(item.emotion_category);
-                    console.log(emotion);
                     if (item.emotion_category == emotion) {
                         chdateTeset += " " + arrDate[2] + "일";
+                        cnt++;
                     }
                 }
             }
@@ -52,6 +52,9 @@ const chooseDate = (emotion) => {
             chdateP.textContent = chdateTeset;
         } catch (err) {
             console.log(err);  // 오류 처리
+        }
+        if(cnt === 0){
+            chdateP.textContent = currentMonth + "월에 제 감정을 선택하지 않으셨습니다."; 
         }
     }
     Date();
