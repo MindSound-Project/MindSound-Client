@@ -57,7 +57,7 @@ const loadImg = () => {
         imageList.appendChild(img);
     })
     if (savedImages.length === 0) {
-        alert('No images found in localStorage.');
+        console.log('No images found in localStorage.');
     }
 }
 loadImg();
