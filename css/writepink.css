@@ -103,6 +103,7 @@ body {
 }
 
 .letterImg {
+    padding-top: 25px;
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -125,7 +126,29 @@ body {
     /* IE and Edge */
 }
 
+#letterContentCol {
+    position: absolute;
+    top: 15%;
+    left: calc(60% - 30%);
+    width: 40%;
+    height: 78%;
+    overflow-y: auto;
+    font-family: 'Pretendard';
+    white-space: pre-wrap;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
 #letterContent::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+#letterContentCol::-webkit-scrollbar {
     display: none;
     /* Chrome, Safari, Opera */
 }
@@ -345,6 +368,10 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+    #completedLetter {
+        width: 200% !important;
+    }
+
     .titleInput {
         font-size: 22px;
         margin-left: -50px;
@@ -462,6 +489,20 @@ body {
         }
     }
 
+    @media screen and (max-width: 700px) {
+        #letterContentCol {
+            width: 50%;
+            left: calc(50% - 25%);
+        }
+    }
+
+    @media screen and (max-width :505px) {
+        #letterContentCol {
+            width: 70%;
+            left: calc(30% - 15%);
+        }
+    }
+
     @media (max-width: 768px) {
         #closeButton {
             width: 90px;
@@ -470,6 +511,11 @@ body {
         }
 
         #letterContent {
+            top: 10%;
+            height: 80%;
+        }
+
+        #letterContentCol {
             top: 10%;
             height: 80%;
         }
