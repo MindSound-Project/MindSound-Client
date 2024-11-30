@@ -151,10 +151,15 @@ truncateLetterTitle(20);
 document.getElementsByClassName('go')[0].addEventListener('click', function () {
     if (letterImg) {
         // URL 인코딩 처리
-        const encodedImgSrc = encodeURIComponent(letterImg.src);
+        const encodedImgSrc = encodeURIComponent(letterImg.src); // 인코딩
+        const decodedSrc = decodeURIComponent(letterImg.src); // 디코딩
 
+        let version = '가로';
+        if(decodedSrc[decodedSrc.length-5] === ')'){
+            version = '세로'
+        }
         // URL에 이미지 경로 전달
-        window.location.href = `/html/writepink.html?img=${encodedImgSrc}`;
+        window.location.href = `/html/writepink.html?img=${encodedImgSrc}&version=${version}`;
     } else {
         console.error("letterImg 요소를 찾을 수 없습니다.");
     }
