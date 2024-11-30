@@ -167,7 +167,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+}
 
+#col {
+    width: 40%;
+    margin-left: calc(60% - 30%);
 }
 
 .titleInput {
@@ -187,6 +192,12 @@ body {
     margin-left: -156px;
 }
 
+#colTitle {
+    margin-top: 18px;
+    height: 5%;
+    margin-left: 0px;
+}
+
 .bodyInput {
     font-family: 'Pretendard';
     width: 90%;
@@ -200,6 +211,10 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     outline: none;
     resize: none;
+}
+
+#colBody {
+    height: 80%;
 }
 
 #closeButton {
@@ -322,6 +337,11 @@ body {
         /* width: 80%; */
         font-size: 14px;
     }
+
+    #col {
+        width: 50%;
+        margin-left: calc(50% - 25%);
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -339,6 +359,11 @@ body {
         width: 606px;
         height: 62px;
         margin-top: -49px;
+    }
+
+    #col {
+        width: 60%;
+        margin-left: calc(40% - 20%);
     }
 
     @media screen and (max-width :637px) {
@@ -430,6 +455,13 @@ body {
         }
     }
 
+    @media screen and (max-width :605px) {
+        #col {
+            width: 80%;
+            margin-left: calc(20% - 10%);
+        }
+    }
+
     @media (max-width: 768px) {
         #closeButton {
             width: 90px;
@@ -450,6 +482,13 @@ body {
             font-size: 14px;
         }
     }
+
+    @media screen and (max-width :490px){
+        #col {
+            width: 90%;
+            margin-left: calc(10% - 5%);
+        }
+    } 
 
     @media (max-width: 400px) {
         #letterTitle {
