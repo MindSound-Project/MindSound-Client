@@ -143,6 +143,7 @@
             }
             emailDiv.classList.add('show');
         });*/
+        /*
         document.getElementsByClassName('go')[0].addEventListener('click', async () => {
             try {
                 console.log("Button clicked");
@@ -154,7 +155,10 @@
                 }
     
                 // 1. textarea를 숨깁니다
-                const bodyInput = document.querySelector('.bodyInput');
+                var bodyInput = document.querySelector('.bodyInput');
+                if(bodyInput.value === ''){
+                    bodyInput = document.getElementsByClassName('.bodyInput')[1];
+                }
                 bodyInput.style.display = 'none'; // textarea 숨기기
     
                 // 2. textarea의 내용을 div로 복사하여 줄 바꿈을 반영
@@ -189,7 +193,70 @@
                 console.error("An error occurred:", error);
             }
             emailDiv.classList.add('show');
+        });*/
+        document.getElementsByClassName('go')[0].addEventListener('click', async () => {
+            try {
+                console.log("Button clicked");
+        
+                const captureArea = document.getElementsByClassName('letterContainer')[0];
+                if (!captureArea) {
+                    console.error("Capture area not found!");
+                    return;
+                }
+        
+                // 이미지 버전에 따라 세로/가로 모드 처리
+                const isVertical = imgVersion === '세로';
+                const activeContentDiv = isVertical ? letterContentColDiv : letterContentDiv;
+                const bodyinputheight = isVertical ? '80%' : '60%';
+        
+                // textarea 선택
+                const allBodyInputs = activeContentDiv.getElementsByClassName('bodyInput');
+                let selectedInput = allBodyInputs[0];
+                if (allBodyInputs[0].value === '') {
+                    selectedInput = allBodyInputs[1];
+                }
+        
+                selectedInput.style.display = 'none'; // textarea 숨기기
+        
+                // textarea 내용을 div로 복사하여 줄 바꿈을 반영
+                const bodyDiv = document.createElement('div');
+                bodyDiv.className = 'bodyDiv'; // 새로운 div 생성
+                bodyDiv.style.whiteSpace = 'pre-wrap'; // 줄 바꿈을 반영하는 스타일 추가
+                bodyDiv.style.wordWrap = 'break-word'; // 긴 단어도 줄 바꿈되도록 추가
+                bodyDiv.style.padding = '10px'; // 기존 스타일 복사
+                bodyDiv.style.fontSize = getComputedStyle(selectedInput).fontSize; // 기존 스타일 복사
+                bodyDiv.style.width = getComputedStyle(selectedInput).width; // 기존 스타일 복사
+                bodyDiv.style.maxWidth = getComputedStyle(selectedInput).maxWidth; // 기존 스타일 복사
+                bodyDiv.style.fontFamily = getComputedStyle(selectedInput).fontFamily; // 기존 스타일 복사
+                bodyDiv.style.lineHeight = getComputedStyle(selectedInput).lineHeight; // 기존 스타일 복사
+                const computedHeight = getComputedStyle(selectedInput).height; // 예: "200px"
+                bodyDiv.style.height = bodyinputheight; // 이 경우 제대로 동작
+                bodyDiv.innerHTML = selectedInput.value.replace(/\n/g, '<br>'); // 줄 바꿈을 HTML로 변환
+        
+                // div에 내용 추가
+                activeContentDiv.appendChild(bodyDiv);
+        
+                // 캡처 시작
+                console.log("Starting html2canvas...");
+                const canvas = await html2canvas(captureArea, {
+                    useCORS: true, // CORS 오류 방지
+                    logging: true, // 디버깅 용도
+                    backgroundColor: null, // 투명 배경 유지
+                });
+        
+                console.log("Canvas generated successfully.");
+                const imageData = canvas.toDataURL('image/png');
+                image_url = imageData;
+        
+                console.log("Image saved to localStorage.");
+            } catch (error) {
+                console.error("An error occurred:", error);
+            }
+            emailDiv.classList.add('show');
         });
+        
+        
+        
         document.getElementsByClassName('emailbutton')[0].addEventListener('click', function() {
             let savedImages = [];
             try {
@@ -212,7 +279,7 @@
                 date,
                 email
             };
-        
+
             let letters = JSON.parse(localStorage.getItem('letters')) || []; // 기존 JSON 데이터를 localStorage에서 가져오기
             letters.push(newLetter); // 새 데이터 추가
             localStorage.setItem('letters', JSON.stringify(letters)); // 다시 저장
@@ -237,6 +304,7 @@
         }
         else if(imgVersion === '세로'){
             letterContentDiv.style.display = 'none';
+            //document.getElementsByClassName('')
         }
         
 
