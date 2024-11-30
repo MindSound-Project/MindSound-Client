@@ -471,7 +471,7 @@ body {
 
     @media screen and (max-width :420px) {
         .emojisc {
-            margin-top: -41px;
+            margin-top: -23px;
         }
 
         #closeButton {
