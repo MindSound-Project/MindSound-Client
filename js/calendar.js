@@ -201,3 +201,12 @@ const chImg = (emotion) => {
 setCalendarHeader(currentDate);
 setCalendar(currentDate);
 chImg('happy')
+
+const calendarMain = document.getElementById('calendar');
+const barDiv = document.getElementsByClassName('bar')[0];
+const boxDiv = document.getElementsByClassName('box')[0];
+
+barDiv.addEventListener('click', () => {
+    boxDiv.classList.toggle('barDown');
+    calendarMain.classList.toggle('calendarDown');
+})

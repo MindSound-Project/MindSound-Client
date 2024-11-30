@@ -192,6 +192,16 @@ body{
         height: 3px;
         background-color: #ACACAC;
         margin-top: 10px;
+        border-radius: 5px;
+    }
+    .bar:hover {
+        cursor: pointer;
+    }
+    .barDown {
+        margin-bottom: -320px;
+    }
+    .calendarDown {
+        margin-top: 250px !important;
     }
     .text {
         font-family: 'HakgyoansimChilpanjijgae';
