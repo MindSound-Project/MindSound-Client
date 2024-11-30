@@ -97,7 +97,7 @@ body{
     font-size: 15px;
 }
 #calendar-container > article > section {
-    width: 53%;
+    width: 60%;
     height: 100%;
     display: flex;
     place-items: center;
