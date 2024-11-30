@@ -357,7 +357,7 @@ body {
     }
 
     .bodyInput {
-        /* width: 80%; */
+        width: 80%;
         font-size: 14px;
     }
 
@@ -472,7 +472,7 @@ body {
 
     @media screen and (max-width :420px) {
         .emojisc {
-            margin-top: -47px;
+            margin-top: -41px;
         }
 
         #closeButton {
