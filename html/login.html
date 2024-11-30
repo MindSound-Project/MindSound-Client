@@ -60,7 +60,27 @@
                     if (user) {
                         // 로그인 성공 시 사용자 정보를 세션 스토리지에 저장
                         sessionStorage.setItem('currentUser', JSON.stringify(user));
-                        window.location.href = '/html/select.html';
+    
+                        // letterList.json 가져오기
+                        fetch('/json/letterList.json')
+                            .then(response => response.json())
+                            .then(letterData => {
+                                const newLetter = []; // 새로운 편지 목록 배열
+                                
+                                // letterData 배열을 돌면서 newLetter에 데이터 추가
+                                letterData.forEach(letter => {
+                                    newLetter.push([letter.image_url, letter.emotion_category, letter.date]);
+                                });
+    
+                                // letters 배열에 newLetter[0] 추가
+                                const letters = [];
+                                letters.push(newLetter[0]);
+                                console.log('Letters:', letters); // 확인용
+    
+                                // 선택 페이지로 이동
+                                window.location.href = '/html/select.html';
+                            })
+                            .catch(error => console.error('Error loading letterList.json:', error));
                     } else {
                         alert('아이디 또는 비밀번호가 올바르지 않습니다.');
                     }
@@ -68,5 +88,6 @@
                 .catch(error => console.error('Error:', error));
         });
     </script>
+    
 </body>
 </html>
