@@ -9,7 +9,7 @@
   
  
 ## ⏰ Period  
-- `2024.09.24 ~ 2024.10.31`
+- `2024.09.24 ~ 2024.11.30`
 
 ## 🔨 Stack / Tool
 - `visual studio code + Github + Figma`
